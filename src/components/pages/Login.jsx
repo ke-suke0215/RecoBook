@@ -14,7 +14,7 @@ import RecoInput from '../atoms/RecoInput'
 import PasswordInput from '../atoms/PasswordInput'
 import RecoButton from '../atoms/RecoButton'
 import firebase from '../../config/firebase.js'
-
+import Button from '@material-ui/core/Button';
 
 function Copyright() {
     return (
@@ -29,6 +29,7 @@ function Copyright() {
     );
 }
 
+///スタイル設定///
 const useStyles = makeStyles((theme) => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -40,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     form: {
         width: '100%', // Fix IE 11 issue.
         marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(3)
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
@@ -49,23 +51,36 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
     const classes = useStyles();
     const { register, handleSubmit, watch, errors } = useForm();
+
+    // const onSubmit = data => {
+    //     firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
+    //         .then(result => {
+    //             result.user.updateProfile({
+    //                 displayName: data.userName
+    //             }).then(() => {
+    //                 console.log("success")
+    //             }).catch(err => {
+    //                 console.log(err)
+    //                 alert('アカウント作成に失敗しました。')
+    //             })
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //             alert('アカウント作成に失敗しました。')
+    //         })
+    // }
+
     const onSubmit = data => {
-        firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
-            .then(result => {
-                result.user.updateProfile({
-                    displayName: data.userName
-                }).then(() => {
-                    console.log("success")
-                }).catch(err => {
-                    console.log(err)
-                    alert('アカウント作成に失敗しました。')
-                })
+        firebase.auth().signInWithEmailAndPassword(data.email, data.password)
+            .then(() => {
+                // history.push("/")   // "/"に遷移
             })
             .catch(err => {
                 console.log(err)
-                alert('アカウント作成に失敗しました。')
+                alert('メールアドレスまたはパスワードが間違っています。')
             })
     }
+
     return (
         <MuiThemeProvider theme={theme}>
 
@@ -77,7 +92,7 @@ export default function SignUp() {
                         variant="h5"
                         style={{ color: '#5f4339' }}
                     >
-                        Create Account
+                        Login
                     </Typography>
                     <form
                         className={classes.form}
@@ -101,11 +116,14 @@ export default function SignUp() {
                             <Grid item xs={6} >
                                 <RecoButton
                                     className="classes.submit"
-                                    text="Create"
+                                    text="Login"
                                 />
                             </Grid>
                         </Grid>
                     </form>
+                    <Grid item>
+                        <Button color="primary">まだアカウントをお持ちでない場合</Button>
+                    </Grid>
                 </Paper>
                 <Box mt={5}>
                     <Copyright />
