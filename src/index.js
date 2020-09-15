@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles'
-import { theme } from '../../materialui/theme.js'
+import { theme } from './materialui/theme'
+import App from './App'
 
 ReactDOM.render(
   <>

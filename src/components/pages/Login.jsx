@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react'
+import { Redirect } from 'react-router-dom'
+import AuthContext from '../../AuthServuce'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
 import { useForm } from "react-hook-form";
@@ -8,8 +10,6 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { MuiThemeProvider } from '@material-ui/core/styles'
-import { theme } from '../../materialui/theme'
 import RecoInput from '../atoms/RecoInput'
 import PasswordInput from '../atoms/PasswordInput'
 import RecoButton from '../atoms/RecoButton'
@@ -48,88 +48,86 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignUp() {
+export default function SignUp({ history }) {
     const classes = useStyles();
     const { register, handleSubmit, watch, errors } = useForm();
 
-    // const onSubmit = data => {
-    //     firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
-    //         .then(result => {
-    //             result.user.updateProfile({
-    //                 displayName: data.userName
-    //             }).then(() => {
-    //                 console.log("success")
-    //             }).catch(err => {
-    //                 console.log(err)
-    //                 alert('アカウント作成に失敗しました。')
-    //             })
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //             alert('アカウント作成に失敗しました。')
-    //         })
-    // }
-
+    ////ログインボタン実行時の挙動////
     const onSubmit = data => {
         firebase.auth().signInWithEmailAndPassword(data.email, data.password)
             .then(() => {
-                // history.push("/")   // "/"に遷移
+                history.push("/")   // "/"に遷移
+                console.log('success')
             })
             .catch(err => {
                 console.log(err)
                 alert('メールアドレスまたはパスワードが間違っています。')
             })
     }
+    ////アカウント作成画面への移動////
+    const toSignUpSubmit = (e) => {
+        e.preventDefault()
+        history.push("/signup")
+    }
+
+    const user = useContext(AuthContext)
+
+    ////ログイン済みの場合////
+    if (user) {
+        return <Redirect to="/" />
+    }
 
     return (
-        <MuiThemeProvider theme={theme}>
-
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Paper className={classes.paper}>
-                    <Typography
-                        component="h1"
-                        variant="h5"
-                        style={{ color: '#5f4339' }}
-                    >
-                        Login
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <Paper className={classes.paper}>
+                <Typography
+                    component="h1"
+                    variant="h5"
+                    style={{ color: '#5f4339' }}
+                >
+                    Login
                     </Typography>
-                    <form
-                        className={classes.form}
-                        noValidate
+                <form
+                    className={classes.form}
+                    noValidate
+                    onSubmit={handleSubmit(onSubmit)}
+                >
+                    <Grid
+                        container spacing={2}
+                        justify="center"
+                        alignItems="center"
                     >
-                        <Grid
-                            container spacing={2}
-                            justify="center"
-                            alignItems="center"
-                        >
-                            <Grid item xs={12}>
-                                <RecoInput
-                                    value="email"
-                                    label="Email Address"
-                                    register={register}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <PasswordInput register={register} />
-                            </Grid>
-                            <Grid item xs={6} >
-                                <RecoButton
-                                    className="classes.submit"
-                                    text="Login"
-                                />
-                            </Grid>
+                        <Grid item xs={12}>
+                            <RecoInput
+                                value="email"
+                                label="Email Address"
+                                register={register}
+                            />
                         </Grid>
-                    </form>
-                    <Grid item>
-                        <Button color="primary">まだアカウントをお持ちでない場合</Button>
+                        <Grid item xs={12}>
+                            <PasswordInput register={register} />
+                        </Grid>
+                        <Grid item xs={6} >
+                            <RecoButton
+                                className="classes.submit"
+                                text="Login"
+                            />
+                        </Grid>
                     </Grid>
-                </Paper>
-                <Box mt={5}>
-                    <Copyright />
-                </Box>
-            </Container >
-        </MuiThemeProvider >
-
+                </form>
+                <Grid item>
+                    <Button
+                        color="primary"
+                        onClick={toSignUpSubmit}
+                    >
+                        まだアカウントをお持ちでない場合
+                    </Button>
+                </Grid>
+            </Paper>
+            <Box mt={5}>
+                <Copyright />
+            </Box>
+        </Container >
     );
 }
