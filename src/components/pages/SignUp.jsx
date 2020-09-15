@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -41,17 +42,18 @@ const useStyles = makeStyles((theme) => ({
     form: {
         width: '100%',
         marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(3)
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
 }));
 
-export default function SignUp() {
+export default function SignUp({ history }) {
     const classes = useStyles();
     const { register, handleSubmit, watch, errors } = useForm();
 
-    ///Firebaseへのデータ転送///
+    ///アカウント作成実行時の挙動（Firebaseへのデータ転送）///
     const onSubmit = data => {
         firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
             .then(result => {
@@ -59,6 +61,7 @@ export default function SignUp() {
                     displayName: data.userName
                 }).then(() => {
                     console.log("success")
+                    history.push("/")
                 }).catch(err => {
                     console.log(err)
                     alert('アカウント作成に失敗しました。')
@@ -68,6 +71,12 @@ export default function SignUp() {
                 console.log(err)
                 alert('アカウント作成に失敗しました。')
             })
+    }
+
+    ////ログイン画面への移動////
+    const toLoginSubmit = (e) => {
+        e.preventDefault()
+        history.push("/login")
     }
 
     return (
@@ -117,6 +126,14 @@ export default function SignUp() {
                             </Grid>
                         </Grid>
                     </form>
+                    <Grid item>
+                        <Button
+                            color="primary"
+                            onClick={toLoginSubmit}
+                        >
+                            ログイン画面へ
+                    </Button>
+                    </Grid>
                 </Paper>
                 <Box mt={5}>
                     <Copyright />
