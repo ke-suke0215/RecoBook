@@ -1,18 +1,19 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 
-const RecoInput = ({ value, label, register }) => {
+const RecoInput = ({ register }) => {
     return (
         <>
             <TextField
-                autoComplete={value}
-                name={value}
+                autoComplete="current-password"
+                name="password"
                 variant="outlined"
                 required
                 fullWidth
-                id={value}
-                label={label}
+                id="password"
+                label="Password"
                 autoFocus
+                type="password"
                 inputProps={{
                     ref: register
                 }}
