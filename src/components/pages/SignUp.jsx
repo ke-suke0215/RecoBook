@@ -97,7 +97,8 @@ export default function SignUp({ history }) {
                         onSubmit={handleSubmit(onSubmit)}
                     >
                         <Grid
-                            container spacing={2}
+                            container
+                            spacing={2}
                             justify="center"
                             alignItems="center"
                         >
