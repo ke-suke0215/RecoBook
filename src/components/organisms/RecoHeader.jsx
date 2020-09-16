@@ -7,6 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import RecoDrawer from '../moleculse/RecoDrawer'
+import Grid from '@material-ui/core/Grid'
 
 const drawerWidth = 240;
 
@@ -15,9 +16,15 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     appBar: {
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
+        },
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up('md')]: {
+            display: 'none',
         },
     },
 }));
@@ -33,28 +40,27 @@ const PostHeader = (props) => {
         setMobileOpen(!mobileOpen);
     };
 
-    const container = window !== undefined ? () => window().document.body : undefined;
-
     return (
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        className={classes.menuButton}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap>
-                        Responsive drawer
+                    <Grid container>
+                        <IconButton
+                            color="inherit"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            className={classes.menuButton}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" noWrap>
+                            Responsive drawer
                     </Typography>
+                    </Grid>
                 </Toolbar>
             </AppBar>
             <RecoDrawer
-                container={container}
                 anchor={theme.direction === 'rtl' ? 'right' : 'left'}
                 mobileOpen={mobileOpen}
                 handleDrawerToggle={handleDrawerToggle}

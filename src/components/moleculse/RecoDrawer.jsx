@@ -14,12 +14,7 @@ const useStyles = makeStyles((theme) => ({
             flexShrink: 0,
         },
     },
-    menuButton: {
-        marginRight: theme.spacing(2),
-        [theme.breakpoints.up('sm')]: {
-            display: 'none',
-        },
-    },
+
     // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
@@ -50,7 +45,7 @@ const RecoDrawer = (props) => {
             <nav className={classes.drawer} aria-label="mailbox folders">
                 <Hidden smUp implementation="css">
                     <Drawer
-                        container={props.container}
+                        container={container}
                         variant="temporary"
                         anchor={props.anchor}
                         open={props.mobileOpen}
@@ -65,7 +60,7 @@ const RecoDrawer = (props) => {
                         <DrawerList />
                     </Drawer>
                 </Hidden>
-                <Hidden xsDown implementation="css">
+                <Hidden smDown implementation="css">
                     <Drawer
                         classes={{
                             paper: classes.drawerPaper,
