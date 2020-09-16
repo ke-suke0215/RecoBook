@@ -58,7 +58,7 @@ const PostHeader = (props) => {
                         justify="center"
                     >
                         <Typography variant="h6" noWrap>
-                            PostPage
+                            Post Page
                         </Typography>
                     </Grid>
                     <DialogIcon />

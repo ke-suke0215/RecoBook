@@ -3,7 +3,7 @@ import Room from './components/pages/Room'
 import Login from './components/pages/Login'
 import SignUp from './components/pages/SignUp'
 import LoggedInRoute from './LoggedInRoute'
-import AuthProvider from './AuthServuce'
+import AuthProvider from './AuthService'
 import {
   BrowserRouter as Router,
   Switch,

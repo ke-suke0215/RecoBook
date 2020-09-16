@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Redirect } from 'react-router-dom'
-import AuthContext from '../../AuthServuce'
+import AuthContext from '../../AuthService'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
 import { useForm } from "react-hook-form";

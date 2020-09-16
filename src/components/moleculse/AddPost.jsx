@@ -10,13 +10,14 @@ import PostAddOutlinedIcon from '@material-ui/icons/PostAddOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
+import PostInput from '../atoms/PostInput'
+import TypeSelect from '../atoms/TypeSelect'
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Box from '@material-ui/core/Box';
 import { db } from '../../config/firebase'
-import RecoInput from '../atoms/RecoInput'
-import { AuthContext } from '../../AuthServuce'
+import { AuthContext } from '../../AuthService';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,39 +42,45 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const AddPost = ({ open, handleClose }) => {
+const BookPostDialog = ({ open, handleClose }) => {
     const classes = useStyles();
+
+    const [title, setTitle] = useState('')
+    const [author, setAuthor] = useState('')
+    const [detail, setDetail] = useState('')
+    const [type, setType] = useState('')
+    const [review, setReview] = useState('')
 
     const selecterLabel = "ジャンルを選択"
     const bookTypes = ["小説", "ビジネス", "趣味", "漫画", "その他"]
 
     const user = useContext(AuthContext)
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-    //     if (title === "" || author === "" || detail === "" || type === "" || review === "") {
-    //         alert('空欄があります。')
-    //         return
-    //     }
+        if (title === "" || author === "" || detail === "" || type === "" || review === "") {
+            alert('空欄があります。')
+            return
+        }
+        console.log("aaaa")
 
-    //     db.collection('messages').add({
-    //         title: title,
-    //         author: author,
-    //         detail: detail,
-    //         type: type,
-    //         review: review,
-    //         user: user.displayName,
-    //         createdAt: new Date(),
-    //     })
-    //     setTitle('')
-    //     setAuthor('')
-    //     setDetail('')
-    //     setType('')
-    //     setReview('')
-
-    //     handleClose()
-    // }
+        db.collection('messages').add({
+            title: title,
+            author: author,
+            detail: detail,
+            type: type,
+            review: review,
+            user: user.displayName,
+            createdAt: new Date(),
+        })
+        setTitle('')
+        setAuthor('')
+        setDetail('')
+        setType('')
+        setReview('')
+        handleClose()
+    }
 
     return (
         <>
@@ -84,113 +91,84 @@ const AddPost = ({ open, handleClose }) => {
                 maxWidth={'xs'}
                 fullWidth={true}
             >
-                <DialogTitle
-                    id="form-dialog-title"
-                    style={{ color: '#5f4339' }}
-                >
-                    <Grid container justify="center">
+                <Grid container justify="center">
+                    <DialogTitle
+                        id="form-dialog-title"
+                        style={{ color: '#5f4339' }}
+                    >
                         New Post
-                    </Grid>
-                </DialogTitle>
+                    </DialogTitle>
+                </Grid>
                 <DialogContent>
                     <form
                         className={classes.form}
                         noValidate
-                    // onSubmit={handleSubmit}
+                        onSubmit={handleSubmit}
                     >
                         <Grid
                             container
+                            justify='center'
+                            alignItems='center'
                             spacing={2}
-                            justify="center"
-                            alignItems="center"
                         >
                             <Grid item xs={12}>
-                                <RecoInput
-                                    value="aa"
-                                    label="ラベル"
-                                // register={register}
+                                <PostInput
+                                    name={title}
+                                    type="text"
+                                    label="タイトル"
+                                    setValue={setTitle}
                                 />
                             </Grid>
                             <Grid item xs={12}>
-                                <RecoInput
-                                    value="aa"
-                                    label="ラベル"
-                                // register={register}
+                                <PostInput
+                                    name={author}
+                                    type="text"
+                                    label="著者"
+                                    setValue={setAuthor}
                                 />
                             </Grid>
                             <Grid item xs={12}>
-                                <RecoInput
-                                    value="aa"
-                                    label="ラベル"
-                                // register={register}
+                                <PostInput
+                                    name={detail}
+                                    type="text"
+                                    label="内容・感想"
+                                    setValue={setDetail}
                                 />
                             </Grid>
-                            <Grid
-                                content
-                                direction="row"
-                                justify="center"
-                                alignItems="center"
-                            >
-                                <Grid item style={{ marginTop: '10px' }}>
-                                    <Typography
-                                        component="legend"
-                                        style={{ textAlign: "center" }}
-
-                                    >
-                                        Review
-                                    </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Rating
-                                        name="customized-empty"
-                                        precision={0.5}
-                                        emptyIcon={<StarBorderIcon fontSize="inherit" />}
-                                    // value={review}
-                                    // onChange={e => {
-                                    //     setReview(e.target.value);
-                                    // }}
-                                    />
+                            <Grid item xs={12}>
+                                <TypeSelect
+                                    bookTypes={bookTypes}
+                                    selecterLabel={selecterLabel}
+                                    type={type}
+                                    setType={setType}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Grid container xs={12} alignItems='center' direction="row">
+                                    <Grid item xs={1.5}>
+                                        <Typography
+                                            component="legend"
+                                            style={{ color: '#5f4339' }}
+                                        >
+                                            Review：
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item xs={9}>
+                                        <Rating
+                                            name="customized-empty"
+                                            precision={0.5}
+                                            emptyIcon={<StarBorderIcon fontSize="inherit" />}
+                                            value={review}
+                                            onChange={e => {
+                                                setReview(e.target.value);
+                                            }}
+                                        />
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
-                        {/* <BookInput
-                            name={title}
-                            type="text"
-                            label="タイトル"
-                            setValue={setTitle}
-                            />
-                            <BookInput
-                            name={author}
-                            type="text"
-                            label="著者"
-                            setValue={setAuthor}
-                            />
-                            <BookInput
-                            name={detail}
-                            type="text"
-                            label="内容・感想"
-                            setValue={setDetail}
-                            />
-                            <BookSelecter
-                            bookTypes={bookTypes}
-                            selecterLabel={selecterLabel}
-                            type={type}
-                            setType={setType}
-                        /> */}
-                        {/* <Box component="fieldset" mt={2} borderColor="transparent">
-                            <Typography component="legend">評価</Typography>
-                            <Rating
-                            name="customized-empty"
-                            precision={0.5}
-                            emptyIcon={<StarBorderIcon fontSize="inherit" />}
-                            value={review}
-                            onChange={e => {
-                                setReview(e.target.value);
-                            }}
-                            />
-                        </Box> */}
                         <Grid container justify="center">
-                            <Grid item xs={6} >
+                            <Grid item xs={6}>
                                 <Button
                                     type="submit"
                                     fullWidth
@@ -214,4 +192,4 @@ const AddPost = ({ open, handleClose }) => {
     )
 }
 
-export default AddPost
+export default BookPostDialog
