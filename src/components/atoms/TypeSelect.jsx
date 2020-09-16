@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const TypeSelect = ({ bookTypes, selecterLabel, type, setType }) => {
+const TypeSelect = ({ bookTypes, selectLabel, type, setType }) => {
     const classes = useStyles();
 
     const handleChange = (event) => {
@@ -26,7 +26,7 @@ const TypeSelect = ({ bookTypes, selecterLabel, type, setType }) => {
             <FormControl variant="outlined" className={classes.formControl}>
 
                 <InputLabel id="demo-simple-select-label">
-                    {selecterLabel}
+                    {selectLabel}
                 </InputLabel>
                 <Select
                     labelId="demo-simple-select-outlined-label"

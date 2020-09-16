@@ -42,7 +42,7 @@ const BookPostDialog = ({ open, handleClose }) => {
     const [review, setReview] = useState('')
 
     ////ジャンル選択用定数////
-    const selecterLabel = "ジャンルを選択"
+    const selectLabel = "ジャンルを選択"
     const bookTypes = ["小説", "ビジネス", "趣味", "漫画", "その他"]
 
     const user = useContext(AuthContext)
@@ -146,7 +146,7 @@ const BookPostDialog = ({ open, handleClose }) => {
                             <Grid item xs={12}>
                                 <TypeSelect
                                     bookTypes={bookTypes}
-                                    selecterLabel={selecterLabel}
+                                    selectLabel={selectLabel}
                                     type={type}
                                     setType={setType}
                                 />
