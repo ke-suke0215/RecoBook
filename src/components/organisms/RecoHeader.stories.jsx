@@ -1,13 +1,13 @@
 import React from 'react';
 
-import PostHeader from './PostHeader';
+import RecoHeader from './RecoHeader';
 
 export default {
-    title: 'PostHeader',
-    component: PostHeader,
+    title: 'RecoHeader',
+    component: RecoHeader,
 };
 
-const Template = (args) => <PostHeader {...args} />;
+const Template = (args) => <RecoHeader {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
