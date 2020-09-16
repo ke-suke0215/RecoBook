@@ -5,12 +5,14 @@ export default function PostInput({
     name,
     type,
     label,
+    row,
     setValue
 }) {
     return (
         <div>
             <TextField
-                // variant="outlined"
+                boo
+                variant="outlined"
                 required
                 fullWidth
                 variant="outlined"
@@ -21,6 +23,8 @@ export default function PostInput({
                 autoComplete={name}
                 autoFocus
                 value={name}
+                multiline="true"
+                rows={row}
                 onChange={e => {
                     setValue(e.target.value)
                 }}

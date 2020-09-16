@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Redirect } from 'react-router-dom'
-import AuthContext from '../../AuthService'
+import { AuthContext } from '../../AuthService'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
 import { useForm } from "react-hook-form";
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignUp({ history }) {
+export default function Login({ history }) {
     const classes = useStyles();
     const { register, handleSubmit, watch, errors } = useForm();
 
@@ -56,7 +56,7 @@ export default function SignUp({ history }) {
     const onSubmit = data => {
         firebase.auth().signInWithEmailAndPassword(data.email, data.password)
             .then(() => {
-                history.push("/")   // "/"に遷移
+                history.push("/")
                 console.log('success')
             })
             .catch(err => {
@@ -64,6 +64,7 @@ export default function SignUp({ history }) {
                 alert('メールアドレスまたはパスワードが間違っています。')
             })
     }
+    ////アカウント作成画面への移動////
     ////アカウント作成画面への移動////
     const toSignUpSubmit = (e) => {
         e.preventDefault()
@@ -110,7 +111,7 @@ export default function SignUp({ history }) {
                         </Grid>
                         <Grid item xs={6} >
                             <RecoButton
-                                className="classes.submit"
+                                className={classes.submit}
                                 text="Login"
                             />
                         </Grid>

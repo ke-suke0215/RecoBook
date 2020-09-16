@@ -7,6 +7,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 
+////スタイル指定////
 const useStyles = makeStyles((theme) => ({
     drawer: {
         [theme.breakpoints.up('sm')]: {
@@ -15,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
         },
     },
 
-    // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
         width: drawerWidth,
@@ -29,13 +29,6 @@ const useStyles = makeStyles((theme) => ({
 const RecoDrawer = (props) => {
     const { window } = props;
     const classes = useStyles();
-    const theme = useTheme();
-    const [mobileOpen, setMobileOpen] = React.useState(false);
-
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
-
 
     const container = window !== undefined ? () => window().document.body : undefined;
 

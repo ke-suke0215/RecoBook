@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid'
 
 const drawerWidth = 240;
 
+////スタイル指定////
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',

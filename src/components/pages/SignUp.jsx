@@ -121,7 +121,7 @@ export default function SignUp({ history }) {
                             </Grid>
                             <Grid item xs={6} >
                                 <RecoButton
-                                    className="classes.submit"
+                                    className={classes.submit}
                                     text="Create"
                                 />
                             </Grid>
