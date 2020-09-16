@@ -6,6 +6,7 @@ export default function PostInput({
     type,
     label,
     row,
+    multiline,
     setValue
 }) {
     return (
@@ -23,7 +24,7 @@ export default function PostInput({
                 autoComplete={name}
                 autoFocus
                 value={name}
-                multiline="true"
+                multiline={multiline}
                 rows={row}
                 onChange={e => {
                     setValue(e.target.value)
