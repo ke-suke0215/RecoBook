@@ -7,10 +7,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import RecoDrawer from '../moleculse/RecoDrawer'
+import DialogIcon from './DialogIcon'
 import Grid from '@material-ui/core/Grid'
 
 const drawerWidth = 240;
 
+////スタイル指定////
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -45,19 +47,22 @@ const PostHeader = (props) => {
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
-                    <Grid container>
-                        <IconButton
-                            color="inherit"
-                            edge="start"
-                            onClick={handleDrawerToggle}
-                            className={classes.menuButton}
-                        >
-                            <MenuIcon />
-                        </IconButton>
+                    <IconButton
+                        color="inherit"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        className={classes.menuButton}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Grid container
+                        justify="center"
+                    >
                         <Typography variant="h6" noWrap>
-                            Responsive drawer
-                    </Typography>
+                            Post Page
+                        </Typography>
                     </Grid>
+                    <DialogIcon />
                 </Toolbar>
             </AppBar>
             <RecoDrawer

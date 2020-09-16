@@ -97,7 +97,8 @@ export default function SignUp({ history }) {
                         onSubmit={handleSubmit(onSubmit)}
                     >
                         <Grid
-                            container spacing={2}
+                            container
+                            spacing={2}
                             justify="center"
                             alignItems="center"
                         >
@@ -120,7 +121,7 @@ export default function SignUp({ history }) {
                             </Grid>
                             <Grid item xs={6} >
                                 <RecoButton
-                                    className="classes.submit"
+                                    className={classes.submit}
                                     text="Create"
                                 />
                             </Grid>
