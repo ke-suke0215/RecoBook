@@ -38,7 +38,6 @@ const TypeSelect = ({ type, setType }) => {
                     defaultValue=""
                     value={type}
                     onChange={handleChange}
-
                 >
                     {bookTypes.map(type => {
                         return (

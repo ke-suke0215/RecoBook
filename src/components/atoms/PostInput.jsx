@@ -14,7 +14,6 @@ export default function PostInput({
             <TextField
                 boo
                 variant="outlined"
-                required
                 fullWidth
                 variant="outlined"
                 type={type}
