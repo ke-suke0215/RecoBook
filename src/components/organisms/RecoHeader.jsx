@@ -10,24 +10,10 @@ import RecoDrawer from '../moleculse/RecoDrawer'
 import DialogIcon from './DialogIcon'
 import Grid from '@material-ui/core/Grid'
 
-const drawerWidth = 240;
-
 ////スタイル指定////
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-    },
-    appBar: {
-        [theme.breakpoints.up('md')]: {
-            width: `calc(100% - ${drawerWidth}px)`,
-            marginLeft: drawerWidth,
-        },
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-        [theme.breakpoints.up('md')]: {
-            display: 'none',
-        },
     },
 }));
 
@@ -45,7 +31,7 @@ const PostHeader = (props) => {
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" className={classes.appBar}>
+            <AppBar position="static" className={classes.appBar}>
                 <Toolbar>
                     <IconButton
                         color="inherit"

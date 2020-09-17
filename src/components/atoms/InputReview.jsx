@@ -13,7 +13,7 @@ const InputReview = ({ review, setReview }) => {
                         component="legend"
                         style={{ color: '#5f4339' }}
                     >
-                        Review：
+                        Review ：
                     </Typography>
                 </Grid>
                 <Grid item xs={9}>

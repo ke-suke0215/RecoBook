@@ -36,7 +36,7 @@ const RecoDrawer = (props) => {
         <>
             <CssBaseline />
             <nav className={classes.drawer} aria-label="mailbox folders">
-                <Hidden smUp implementation="css">
+                <Hidden implementation="css">
                     <Drawer
                         container={container}
                         variant="temporary"
@@ -53,7 +53,7 @@ const RecoDrawer = (props) => {
                         <DrawerList />
                     </Drawer>
                 </Hidden>
-                <Hidden smDown implementation="css">
+                {/* <Hidden smDown implementation="css">
                     <Drawer
                         classes={{
                             paper: classes.drawerPaper,
@@ -63,7 +63,7 @@ const RecoDrawer = (props) => {
                     >
                         <DrawerList />
                     </Drawer>
-                </Hidden>
+                </Hidden> */}
             </nav>
         </>
     )

@@ -14,7 +14,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const TypeSelect = ({ bookTypes, selectLabel, type, setType }) => {
+////ジャンル選択用定数////
+const selectLabel = "ジャンルを選択"
+const bookTypes = ["小説", "ビジネス", "趣味", "漫画", "その他"]
+
+const TypeSelect = ({ type, setType }) => {
     const classes = useStyles();
 
     const handleChange = (event) => {
@@ -34,7 +38,6 @@ const TypeSelect = ({ bookTypes, selectLabel, type, setType }) => {
                     defaultValue=""
                     value={type}
                     onChange={handleChange}
-
                 >
                     {bookTypes.map(type => {
                         return (

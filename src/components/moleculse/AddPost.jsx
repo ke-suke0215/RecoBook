@@ -41,10 +41,6 @@ const BookPostDialog = ({ open, handleClose }) => {
     const [type, setType] = useState('')
     const [review, setReview] = useState('')
 
-    ////ジャンル選択用定数////
-    const selectLabel = "ジャンルを選択"
-    const bookTypes = ["小説", "ビジネス", "趣味", "漫画", "その他"]
-
     const user = useContext(AuthContext)
 
     ////投稿追加時の関数////
@@ -122,6 +118,7 @@ const BookPostDialog = ({ open, handleClose }) => {
                                     type="text"
                                     label="タイトル"
                                     row={1}
+                                    multiline="false"
                                     setValue={setTitle}
                                 />
                             </Grid>
@@ -130,6 +127,7 @@ const BookPostDialog = ({ open, handleClose }) => {
                                     name={author}
                                     type="text"
                                     label="著者"
+                                    multiline="false"
                                     row={1}
                                     setValue={setAuthor}
                                 />
@@ -139,14 +137,13 @@ const BookPostDialog = ({ open, handleClose }) => {
                                     name={detail}
                                     type="text"
                                     label="内容・感想"
+                                    multiline="true"
                                     row={4}
                                     setValue={setDetail}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <TypeSelect
-                                    bookTypes={bookTypes}
-                                    selectLabel={selectLabel}
                                     type={type}
                                     setType={setType}
                                 />
