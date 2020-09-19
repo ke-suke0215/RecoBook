@@ -10,15 +10,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const mess = {
-    user: "ke",
-    author: "aaa",
-    detail: "deta",
-    review: 3,
-    type: "ビジネス",
-    title: "dd"
-}
-
 const AllPost = () => {
     const [messages, setMessages] = useState('')
     const classes = useStyles();

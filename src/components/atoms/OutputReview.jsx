@@ -1,5 +1,6 @@
+///////////////////////
 ////表示投稿、評価部分////
-
+///////////////////////
 
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
