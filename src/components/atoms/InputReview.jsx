@@ -7,21 +7,22 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 const InputReview = ({ review, setReview }) => {
     return (
         <>
-            <Grid container xs={12} alignItems='center' direction="row">
-                <Grid item xs={3}>
+            <Grid container xs={12} alignItems='center' >
+                <Grid item xs={2.5}>
                     <Typography
                         component="legend"
                         style={{ color: '#5f4339' }}
                     >
-                        Review ：
+                        Review：
                     </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid item xs={9.5}>
                     <Rating
                         name="customized-empty"
                         precision={0.5}
                         emptyIcon={<StarBorderIcon fontSize="inherit" />}
                         value={review}
+
                         onChange={e => {
                             setReview(e.target.value);
                         }}

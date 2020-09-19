@@ -8,9 +8,15 @@ import Rating from '@material-ui/lab/Rating';
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
+    container: {
+        minWidth: "400px"
+    },
     block: {
         display: 'block',
     },
+    star: {
+        marginTop: "4px"
+    }
 }));
 
 const OutputReview = ({ review }) => {
@@ -18,7 +24,7 @@ const OutputReview = ({ review }) => {
 
     return (
         <>
-            <Grid container xs={12} alignItems='center' direction="row">
+            <Grid container xs={12} alignItems='center' direction="row" className={classes.container}>
                 <Grid item xs={2}>
                     <Typography
                         component="span"
@@ -36,6 +42,7 @@ const OutputReview = ({ review }) => {
                         value={review}
                         precision={0.5}
                         readOnly
+                        className={classes.star}
                         size="small"
                     />
                 </Grid>
