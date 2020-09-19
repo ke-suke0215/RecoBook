@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TabParts from '../atoms/TabParts'
-
+import AllPost from '../organisms/AllPost'
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -69,7 +69,7 @@ export default function TypeSelectTab() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0}>
-                    全て
+                    <AllPost />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     ビジネス

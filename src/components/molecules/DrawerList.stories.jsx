@@ -14,4 +14,4 @@ Primary.args = {
     severity: "error",
     title: "hello",
     content: "world",
-};
+}
