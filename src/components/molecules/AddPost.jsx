@@ -1,3 +1,7 @@
+//////////////////////////
+///////投稿入力ページ///////
+//////////////////////////
+
 import React, { useState, useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -47,22 +51,10 @@ const BookPostDialog = ({ open, handleClose }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-
         if (title === "" || author === "" || detail === "" || type === "" || review === "") {
             alert('空欄があります。')
             return
         }
-
-        ////Firebaseへのデータ追加////
-        db.collection('messages').add({
-            title: title,
-            author: author,
-            detail: detail,
-            type: type,
-            review: review,
-            user: user.displayName,
-            createdAt: new Date(),
-        })
 
         ////記入欄のリセット////
         setTitle('')
@@ -71,6 +63,19 @@ const BookPostDialog = ({ open, handleClose }) => {
         setType('')
         setReview('')
         handleClose()
+
+        ////Firebaseへのデータ追加////
+        setTimeout(() =>
+            db.collection('messages').add({
+                title: title,
+                author: author,
+                detail: detail,
+                type: type,
+                review: review,
+                user: user.displayName,
+                createdAt: new Date(),
+            }), 800
+        )
     }
 
     ////キャンセルボタンの関数////

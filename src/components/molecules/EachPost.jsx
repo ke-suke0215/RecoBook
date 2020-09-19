@@ -1,3 +1,7 @@
+//////////////////////////
+///////1つ１つの投稿////////
+//////////////////////////
+
 import React from 'react'
 import ListItem from '@material-ui/core/ListItem';
 import Paper from '@material-ui/core/Paper'

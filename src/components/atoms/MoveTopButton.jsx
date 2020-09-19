@@ -1,7 +1,10 @@
+//////////////////////////
+////上部へのスクロールボタン///
+//////////////////////////
+
 import React from 'react'
 import Button from '@material-ui/core/Button';
 import ExpandLessIcon from '@material-ui/icons/ExpandLessOutlined';
-import AppBar from '@material-ui/core/AppBar'
 
 const handleScroll = () => {
     window.scrollTo({

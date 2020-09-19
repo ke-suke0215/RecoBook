@@ -1,3 +1,7 @@
+//////////////////////////
+/////Drawerページ////
+//////////////////////////
+
 import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
             flexShrink: 0,
         },
     },
-
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
         width: drawerWidth,
@@ -53,17 +56,6 @@ const RecoDrawer = (props) => {
                         <DrawerList />
                     </Drawer>
                 </Hidden>
-                {/* <Hidden smDown implementation="css">
-                    <Drawer
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                        variant="permanent"
-                        open
-                    >
-                        <DrawerList />
-                    </Drawer>
-                </Hidden> */}
             </nav>
         </>
     )

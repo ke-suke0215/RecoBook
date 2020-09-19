@@ -1,3 +1,7 @@
+//////////////////////////
+////投稿入力欄パーツ////////
+//////////////////////////
+
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 
