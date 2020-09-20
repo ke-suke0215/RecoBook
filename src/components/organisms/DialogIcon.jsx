@@ -1,3 +1,7 @@
+//////////////////////////
+/////投稿欄を開くボタン//////
+//////////////////////////
+
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import PostAddOutlinedIcon from '@material-ui/icons/PostAddOutlined';

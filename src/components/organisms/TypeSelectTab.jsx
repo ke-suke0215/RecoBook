@@ -1,3 +1,7 @@
+//////////////////////////
+//////ジャンル選択タブ///////
+//////////////////////////
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';

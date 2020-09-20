@@ -1,3 +1,7 @@
+//////////////////////////
+/////メインページ////////
+//////////////////////////
+
 import React from 'react'
 import RecoHeader from '../organisms/RecoHeader'
 import TypeSelectTab from '../organisms/TypeSelectTab'

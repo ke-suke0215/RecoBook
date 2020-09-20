@@ -1,3 +1,7 @@
+//////////////////////
+////アカウント作成ページ//
+///////////////////////
+
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
