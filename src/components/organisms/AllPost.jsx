@@ -1,3 +1,7 @@
+//////////////////////////
+///////全ての投稿////////
+//////////////////////////
+
 import React, { useEffect, useState } from 'react'
 import { db } from '../../config/firebase'
 import { makeStyles } from '@material-ui/core/styles';
