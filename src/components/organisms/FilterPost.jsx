@@ -1,12 +1,12 @@
 //////////////////////////
-///////全ての投稿////////
+///////絞り込みの投稿///////
 //////////////////////////
 
 import React, { useEffect, useState } from 'react'
 import { db } from '../../config/firebase'
 import EachPost from '../molecules/EachPost'
 
-const AllPost = () => {
+const FilterPost = ({ type }) => {
     const [messages, setMessages] = useState('')
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const AllPost = () => {
                 const messages = snapshot.docs.map(doc => {
                     return doc.data()
                 })
-                setMessages(messages)
+                setMessages(messages.filter(message => message.type === type))
             })
     }, [])
 
@@ -34,4 +34,4 @@ const AllPost = () => {
     )
 }
 
-export default AllPost
+export default FilterPost
