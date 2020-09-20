@@ -1,21 +1,19 @@
-//////////////////////////
-//////ユーザー名表示///////
-//////////////////////////
+///////////////////////////////
+//投稿欄のtitle,author,type内容/
+///////////////////////////////
 
 import React from 'react'
-import Typography from '@material-ui/core/Typography'
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles'
-
 
 const useStyles = makeStyles((theme) => ({
     block: {
         display: 'block',
         marginBottom: '10px'
-
     },
 }));
 
-const PostUserName = ({ user }) => {
+const OverviewContent = ({ content }) => {
     const classes = useStyles();
 
     return (
@@ -26,14 +24,13 @@ const PostUserName = ({ user }) => {
                 className={classes.block}
                 color="textPrimary"
                 style={{
-                    fontSize: '20px',
-                    fontWeight: "bold"
+                    fontFamily: 'sans-serif',
                 }}
             >
-                {user}
+                {content}
             </Typography>
         </>
     )
 }
 
-export default PostUserName
+export default OverviewContent

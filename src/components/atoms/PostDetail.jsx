@@ -9,8 +9,8 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
     block: {
         display: 'block',
-        margin: '10px',
-        marginTop: '20px'
+        margin: '20px',
+        marginRight: '0px'
     },
 }));
 
@@ -23,7 +23,8 @@ const PostDetail = ({ detail }) => {
                 color="textPrimary"
                 className={classes.block}
                 style={{
-                    fontSize: '15px',
+                    fontSize: '14px',
+                    fontFamily: 'sans-serif',
                     whiteSpace: 'pre-wrap'
                 }}
             >
