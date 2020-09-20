@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TabParts from '../atoms/TabParts'
 import AllPost from '../organisms/AllPost'
+import FilterPost from './FilterPost'
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -59,6 +61,8 @@ export default function TypeSelectTab() {
         setValue(index);
     };
 
+    const changeTabArray = ["ビジネス", "趣味", "漫画", "その他"]
+
     return (
         <div className={classes.root}>
             <AppBar position="static" color="default">
@@ -73,22 +77,19 @@ export default function TypeSelectTab() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0}>
+                    {/* 全て */}
                     <AllPost />
                 </TabPanel>
-                <TabPanel value={value} index={1}>
-                    ビジネス
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                    趣味
-                </TabPanel>
-                <TabPanel value={value} index={3}>
-                    漫画
-                </TabPanel>
-                <TabPanel value={value} index={4}>
-                    その他
-                </TabPanel>
+                {
+                    changeTabArray.map((type, index) => {
+                        return (
+                            <TabPanel value={value} index={index + 1}>
+                                <FilterPost type={type} />
+                            </TabPanel>
+                        )
+                    })
+                }
             </SwipeableViews>
-
         </div>
     );
 }
