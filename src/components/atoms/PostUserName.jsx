@@ -10,8 +10,9 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
     block: {
         display: 'block',
-        marginBottom: '10px'
-
+        marginBottom: '10px',
+        paddingBottom: '10px',
+        borderBottom: '1px solid #777'
     },
 }));
 
@@ -27,7 +28,8 @@ const PostUserName = ({ user }) => {
                 color="textPrimary"
                 style={{
                     fontSize: '20px',
-                    fontWeight: "bold"
+                    fontFamily: 'sans-serif',
+                    // fontWeight: "bold"
                 }}
             >
                 {user}

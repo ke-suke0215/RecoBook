@@ -1,8 +1,10 @@
+////////////////////
+//投稿内容部分////////
+////////////////////
+
 import React from 'react'
-import Paper from '@material-ui/core/Paper'
 import Box from '@material-ui/core/Box'
 import { makeStyles, responsiveFontSizes } from '@material-ui/core/styles'
-import PostUserName from '../atoms/PostUserName'
 import PostOverview from './PostOverview'
 import PostDetail from '../atoms/PostDetail';
 import OutputReview from '../atoms/OutputReview'
