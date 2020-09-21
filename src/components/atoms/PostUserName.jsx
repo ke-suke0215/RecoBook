@@ -29,7 +29,6 @@ const PostUserName = ({ user }) => {
                 style={{
                     fontSize: '20px',
                     fontFamily: 'sans-serif',
-                    // fontWeight: "bold"
                 }}
             >
                 {user}
