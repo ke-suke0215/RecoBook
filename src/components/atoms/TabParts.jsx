@@ -26,20 +26,13 @@ const TabParts = ({ value, handleChange }) => {
             scrollButtons="auto"
             aria-label="scrollable auto tabs example"
         >
-            <Tab label="All" {...a11yProps(0)} />
-            <Tab label="Novel" {...a11yProps(1)} />
-            <Tab label="Business" {...a11yProps(2)} />
-            <Tab label="Hobby" {...a11yProps(3)} />
-            <Tab label="Comic" {...a11yProps(4)} />
-            <Tab label="Others" {...a11yProps(5)} />
-
-            {/* {
-                tabPartsArray.map = ((parts, index) => {
+            {
+                tabPartsArray.map((part, index) => {
                     return (
-                        <Tab label={parts} {...a11yProps(index)} />
+                        <Tab label={part} {...a11yProps(index)} />
                     )
                 })
-            } */}
+            }
         </Tabs>
     )
 }

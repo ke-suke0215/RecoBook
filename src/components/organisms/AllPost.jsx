@@ -1,25 +1,11 @@
 //////////////////////////
-///////全ての投稿////////
+///////投稿一覧////////
 //////////////////////////
 
-import React, { useEffect, useState } from 'react'
-import { db } from '../../config/firebase'
+import React from 'react'
 import EachPost from '../molecules/EachPost'
 
-const AllPost = () => {
-    const [messages, setMessages] = useState('')
-
-    useEffect(() => {
-        db.collection('messages')
-            .orderBy("createdAt", "desc")
-            .onSnapshot((snapshot) => {
-                const messages = snapshot.docs.map(doc => {
-                    return doc.data()
-                })
-                setMessages(messages)
-            })
-    }, [])
-
+const AllPost = ({ messages }) => {
     return (
         <>
             {
