@@ -61,7 +61,7 @@ export default function TypeSelectTab() {
         setValue(index);
     };
 
-    const changeTabArray = ["ビジネス", "趣味", "漫画", "その他"]
+    const changeTabArray = ["小説", "ビジネス", "趣味", "漫画", "その他"]
 
     return (
         <div className={classes.root}>
@@ -77,7 +77,6 @@ export default function TypeSelectTab() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0}>
-                    {/* 全て */}
                     <AllPost />
                 </TabPanel>
                 {

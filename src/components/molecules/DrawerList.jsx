@@ -30,29 +30,44 @@ const DrawerList = () => {
         console.log("Logout")
     }
 
+    ///drawerに表示するもの////
+    const drawerContents = [
+        {
+            icon: <HomeRoundedIcon />,
+            text: "Post",
+            func: postSubmit
+        },
+        {
+            icon: <AccountCircleRoundedIcon />,
+            text: "My Page",
+            func: myPageSubmit
+        },
+        {
+            icon: <HelpOutlineRoundedIcon />,
+            text: "Help",
+            func: helpSubmit
+        },
+        {
+            icon: <ExitToAppRoundedIcon />,
+            text: "Logout",
+            func: logoutSubmit
+        },
+    ]
+
     return (
         <>
             <List>
-                <DrawerItem
-                    icon={<HomeRoundedIcon />}
-                    text="Post"
-                    onSubmit={postSubmit}
-                />
-                <DrawerItem
-                    icon={<AccountCircleRoundedIcon />}
-                    text="My Page"
-                    onSubmit={myPageSubmit}
-                />
-                <DrawerItem
-                    icon={<HelpOutlineRoundedIcon />}
-                    text="Help"
-                    onSubmit={helpSubmit}
-                />
-                <DrawerItem
-                    icon={<ExitToAppRoundedIcon />}
-                    text="Logout"
-                    onSubmit={logoutSubmit}
-                />
+                {
+                    drawerContents.map(content => {
+                        return (
+                            <DrawerItem
+                                icon={content.icon}
+                                text={content.text}
+                                onSubmit={content.func}
+                            />
+                        )
+                    })
+                }
             </List>
         </>
     )
