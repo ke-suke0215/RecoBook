@@ -10,7 +10,15 @@ const useStyles = makeStyles((theme) => ({
     block: {
         display: 'block',
         margin: '20px',
-        marginRight: '0px'
+        marginRight: '0px',
+        fontFamily: 'sans-serif',
+        whiteSpace: 'pre-wrap',
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '12px',
+        },
+        [theme.breakpoints.up('sm')]: {
+            fontSize: '15px',
+        },
     },
 }));
 
@@ -22,11 +30,6 @@ const PostDetail = ({ detail }) => {
             <Typography
                 color="textPrimary"
                 className={classes.block}
-                style={{
-                    fontSize: '12px',
-                    fontFamily: 'sans-serif',
-                    whiteSpace: 'pre-wrap'
-                }}
             >
                 {detail}
             </Typography>

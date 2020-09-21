@@ -11,7 +11,7 @@ import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import firebase from '../../config/firebase'
 import DrawerItem from '../atoms/DrawerItem'
 
-const DrawerList = () => {
+const DrawerList = ({ history }) => {
     const postSubmit = e => {
         e.preventDefault()
         console.log("post")
@@ -19,6 +19,7 @@ const DrawerList = () => {
     const myPageSubmit = e => {
         e.preventDefault()
         console.log("my page")
+        history.push("/mypage")
     }
     const helpSubmit = e => {
         e.preventDefault()

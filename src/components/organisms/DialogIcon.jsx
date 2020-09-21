@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import PostAddOutlinedIcon from '@material-ui/icons/PostAddOutlined';
 import AddPost from '../molecules/AddPost'
 
-export default function DialogIcon() {
+export default function DialogIcon({ dialogIconDisplay }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -20,7 +20,13 @@ export default function DialogIcon() {
 
     return (
         <div>
-            <Button color="inherit" onClick={handleClickOpen}>
+            <Button
+                color="inherit"
+                onClick={handleClickOpen}
+                style={{
+                    display: dialogIconDisplay ? 'block' : 'none'
+                }}
+            >
                 <PostAddOutlinedIcon />
             </Button>
             <AddPost

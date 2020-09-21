@@ -45,6 +45,23 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         backgroundColor: theme.palette.secondary,
     },
+    appBar: {
+        position: 'fixed',
+        [theme.breakpoints.down('xs')]: {
+            top: '56px',
+        },
+        [theme.breakpoints.up('sm')]: {
+            top: '64px',
+        },
+    },
+    tabPanel: {
+        [theme.breakpoints.down('xs')]: {
+            marginTop: '100px'
+        },
+        [theme.breakpoints.up('sm')]: {
+            marginTop: '108px'
+        },
+    }
 }));
 
 export default function TypeSelectTab() {
@@ -65,7 +82,7 @@ export default function TypeSelectTab() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" color="default">
+            <AppBar position="static" color="default" className={classes.appBar}>
                 <TabParts
                     value={value}
                     handleChange={handleChange}
@@ -76,13 +93,13 @@ export default function TypeSelectTab() {
                 index={value}
                 onChangeIndex={handleChangeIndex}
             >
-                <TabPanel value={value} index={0}>
+                <TabPanel value={value} index={0} className={classes.tabPanel}>
                     <AllPost />
                 </TabPanel>
                 {
                     changeTabArray.map((type, index) => {
                         return (
-                            <TabPanel value={value} index={index + 1}>
+                            <TabPanel value={value} index={index + 1} className={classes.tabPanel}>
                                 <FilterPost type={type} />
                             </TabPanel>
                         )

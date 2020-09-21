@@ -1,22 +1,19 @@
 //////////////////////////
-/////メインページ////////
+/////ヘルプページ////////
 //////////////////////////
 
 import React from 'react'
 import RecoHeader from '../organisms/RecoHeader'
-import TypeSelectTab from '../organisms/TypeSelectTab'
 import MoveTopButton from '../atoms/MoveTopButton'
 
-
-
-const Room = ({ history }) => {
+const MyPage = ({ history }) => {
     return (
         <>
-            <RecoHeader text="Post Page" />
-            <TypeSelectTab />
+            <RecoHeader text="My Page" />
             <MoveTopButton />
+
         </>
     )
 }
 
-export default Room
+export default MyPage
