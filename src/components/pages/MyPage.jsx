@@ -9,7 +9,7 @@ import MoveTopButton from '../atoms/MoveTopButton'
 const MyPage = ({ history }) => {
     return (
         <>
-            <RecoHeader text="My Page" />
+            <RecoHeader pageType="My Page" />
             <MoveTopButton />
 
         </>

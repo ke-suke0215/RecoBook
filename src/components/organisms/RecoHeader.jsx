@@ -24,15 +24,15 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const PostHeader = ({ text }) => {
+const PostHeader = ({ pageType }) => {
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     ////投稿ボタンの表示の真偽値////
-    let dialogIconDisplay = false
-    if (text === "Post Page") {
-        dialogIconDisplay = true
+    let dialogIconDisplay = true
+    if (pageType === "Help") {
+        dialogIconDisplay = false
     }
 
     ////Drawer開閉設定////
@@ -58,7 +58,7 @@ const PostHeader = ({ text }) => {
                         justify="center"
                     >
                         <Typography variant="h6" noWrap>
-                            {text}
+                            {pageType}
                         </Typography>
                     </Grid>
                     <DialogIcon dialogIconDisplay={dialogIconDisplay} />
