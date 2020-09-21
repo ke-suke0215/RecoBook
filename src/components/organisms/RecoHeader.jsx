@@ -19,13 +19,21 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
+    appBar: {
+        position: 'fixed'
+    }
 }));
 
-const PostHeader = (props) => {
-    const { window } = props;
+const PostHeader = ({ text }) => {
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    ////投稿ボタンの表示の真偽値////
+    let dialogIconDisplay = false
+    if (text === "Post Page") {
+        dialogIconDisplay = true
+    }
 
     ////Drawer開閉設定////
     const handleDrawerToggle = () => {
@@ -49,10 +57,10 @@ const PostHeader = (props) => {
                         justify="center"
                     >
                         <Typography variant="h6" noWrap>
-                            Post Page
+                            {text}
                         </Typography>
                     </Grid>
-                    <DialogIcon />
+                    <DialogIcon dialogIconDisplay={dialogIconDisplay} />
                 </Toolbar>
             </AppBar>
             <RecoDrawer

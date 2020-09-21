@@ -10,7 +10,7 @@ import MoveTopButton from '../atoms/MoveTopButton'
 const Room = () => {
     return (
         <>
-            <RecoHeader />
+            <RecoHeader text="Post Page" />
             <TypeSelectTab />
             <MoveTopButton />
         </>
