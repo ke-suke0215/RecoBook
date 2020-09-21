@@ -7,7 +7,9 @@ import RecoHeader from '../organisms/RecoHeader'
 import TypeSelectTab from '../organisms/TypeSelectTab'
 import MoveTopButton from '../atoms/MoveTopButton'
 
-const Room = () => {
+
+
+const Room = ({ history }) => {
     return (
         <>
             <RecoHeader text="Post Page" />

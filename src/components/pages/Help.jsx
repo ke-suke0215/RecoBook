@@ -4,16 +4,13 @@
 
 import React from 'react'
 import RecoHeader from '../organisms/RecoHeader'
-import MoveTopButton from '../atoms/MoveTopButton'
 
-const MyPage = ({ history }) => {
+const Help = ({ history }) => {
     return (
         <>
-            <RecoHeader text="My Page" />
-            <MoveTopButton />
-
+            <RecoHeader text="Help" />
         </>
     )
 }
 
-export default MyPage
+export default Help

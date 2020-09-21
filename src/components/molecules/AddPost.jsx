@@ -47,6 +47,17 @@ const BookPostDialog = ({ open, handleClose }) => {
 
     const user = useContext(AuthContext)
 
+
+    ////キャンセルボタンの関数////
+    const handleCloseDialog = () => {
+        setTitle('')
+        setAuthor('')
+        setDetail('')
+        setType('')
+        setReview('')
+        handleClose()
+    }
+
     ////投稿追加時の関数////
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -57,12 +68,7 @@ const BookPostDialog = ({ open, handleClose }) => {
         }
 
         ////記入欄のリセット////
-        setTitle('')
-        setAuthor('')
-        setDetail('')
-        setType('')
-        setReview('')
-        handleClose()
+        handleCloseDialog()
 
         ////Firebaseへのデータ追加////
         setTimeout(() =>
@@ -76,16 +82,6 @@ const BookPostDialog = ({ open, handleClose }) => {
                 createdAt: new Date(),
             }), 800
         )
-    }
-
-    ////キャンセルボタンの関数////
-    const handleCloseDialog = () => {
-        setTitle('')
-        setAuthor('')
-        setDetail('')
-        setType('')
-        setReview('')
-        handleClose()
     }
 
     return (

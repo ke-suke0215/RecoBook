@@ -40,6 +40,7 @@ const PostHeader = ({ text }) => {
         setMobileOpen(!mobileOpen);
     };
 
+
     return (
         <div className={classes.root}>
             <CssBaseline />
