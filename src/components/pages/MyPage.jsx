@@ -6,7 +6,7 @@ import React from 'react'
 import RecoHeader from '../organisms/RecoHeader'
 import MoveTopButton from '../atoms/MoveTopButton'
 
-const MyPage = ({ history }) => {
+const MyPage = () => {
     return (
         <>
             <RecoHeader pageType="My Page" />

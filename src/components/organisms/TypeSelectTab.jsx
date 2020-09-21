@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function TypeSelectTab({ messagesTypes }) {
+export default function TypeSelectTab({ messagesTypes, history }) {
     const classes = useStyles();
     const theme = useTheme();
 

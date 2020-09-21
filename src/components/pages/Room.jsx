@@ -7,6 +7,7 @@ import { db } from '../../config/firebase'
 import RecoHeader from '../organisms/RecoHeader'
 import TypeSelectTab from '../organisms/TypeSelectTab'
 import MoveTopButton from '../atoms/MoveTopButton'
+import { useHistory } from 'react-router-dom'
 
 const Room = () => {
 
@@ -17,7 +18,7 @@ const Room = () => {
     const [comicMessages, setComicMessages] = useState('')
     const [othersMessages, setOthersMessages] = useState('')
 
-    // const changeTabArray = ["小説", "ビジネス", "趣味", "漫画", "その他"]
+    const history = useHistory()
 
     const setMessagesTypes = [
         {
@@ -64,7 +65,6 @@ const Room = () => {
                 })
             })
     }, [])
-
 
     return (
         <>
