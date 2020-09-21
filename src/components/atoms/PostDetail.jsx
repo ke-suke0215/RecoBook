@@ -23,7 +23,7 @@ const PostDetail = ({ detail }) => {
                 color="textPrimary"
                 className={classes.block}
                 style={{
-                    fontSize: '14px',
+                    fontSize: '12px',
                     fontFamily: 'sans-serif',
                     whiteSpace: 'pre-wrap'
                 }}
