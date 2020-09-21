@@ -29,17 +29,10 @@ const EachPost = ({ message }) => {
 
     return (
         <>
-            {/* <ListItem alignItems="flex-start" ml={4}> */}
             <Paper className={classes.paper}>
                 <PostUserName user={message.user} />
-                {/* <PostOverview label='Title' content={message.title} />
-                <PostOverview label='Author' content={message.author} />
-                <PostOverview label='Type' content={message.type} />
-                <PostDetail detail={message.detail} />
-                <OutputReview review={message.review} /> */}
                 <PostContent message={message} />
             </Paper>
-            {/* </ListItem> */}
         </>
     )
 }

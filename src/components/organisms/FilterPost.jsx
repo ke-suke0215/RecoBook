@@ -9,16 +9,16 @@ import EachPost from '../molecules/EachPost'
 const FilterPost = ({ type }) => {
     const [messages, setMessages] = useState('')
 
-    useEffect(() => {
-        db.collection('messages')
-            .orderBy("createdAt", "desc")
-            .onSnapshot((snapshot) => {
-                const messages = snapshot.docs.map(doc => {
-                    return doc.data()
-                })
-                setMessages(messages.filter(message => message.type === type))
-            })
-    }, [])
+    // useEffect(() => {
+    //     db.collection('messages')
+    //         .orderBy("createdAt", "desc")
+    //         .onSnapshot((snapshot) => {
+    //             const messages = snapshot.docs.map(doc => {
+    //                 return doc.data()
+    //             })
+    //             setMessages(messages.filter(message => message.type === type))
+    //         })
+    // }, [])
 
     return (
         <>

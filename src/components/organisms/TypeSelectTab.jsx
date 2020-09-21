@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TabParts from '../atoms/TabParts'
 import AllPost from '../organisms/AllPost'
-import FilterPost from './FilterPost'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -64,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function TypeSelectTab() {
+export default function TypeSelectTab({ messagesTypes }) {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -77,8 +76,6 @@ export default function TypeSelectTab() {
     const handleChangeIndex = (index) => {
         setValue(index);
     };
-
-    const changeTabArray = ["小説", "ビジネス", "趣味", "漫画", "その他"]
 
     return (
         <div className={classes.root}>
@@ -93,14 +90,11 @@ export default function TypeSelectTab() {
                 index={value}
                 onChangeIndex={handleChangeIndex}
             >
-                <TabPanel value={value} index={0} className={classes.tabPanel}>
-                    <AllPost />
-                </TabPanel>
                 {
-                    changeTabArray.map((type, index) => {
+                    messagesTypes.map((type, index) => {
                         return (
-                            <TabPanel value={value} index={index + 1} className={classes.tabPanel}>
-                                <FilterPost type={type} />
+                            <TabPanel value={value} index={index} className={classes.tabPanel}>
+                                <AllPost messages={type} />
                             </TabPanel>
                         )
                     })
