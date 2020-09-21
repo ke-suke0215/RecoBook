@@ -10,11 +10,15 @@ import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import firebase from '../../config/firebase'
 import DrawerItem from '../atoms/DrawerItem'
+import { useHistory } from 'react-router-dom'
 
-const DrawerList = ({ history }) => {
+const DrawerList = () => {
+    const history = useHistory()
+
     const postSubmit = e => {
         e.preventDefault()
         console.log("post")
+        history.push("/")
     }
     const myPageSubmit = e => {
         e.preventDefault()
@@ -24,6 +28,7 @@ const DrawerList = ({ history }) => {
     const helpSubmit = e => {
         e.preventDefault()
         console.log("help")
+        history.push("/help")
     }
     const logoutSubmit = e => {
         e.preventDefault()

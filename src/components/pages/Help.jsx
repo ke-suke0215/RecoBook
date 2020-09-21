@@ -5,10 +5,10 @@
 import React from 'react'
 import RecoHeader from '../organisms/RecoHeader'
 
-const Help = ({ history }) => {
+const Help = () => {
     return (
         <>
-            <RecoHeader text="Help" />
+            <RecoHeader pageType="Help" />
         </>
     )
 }
