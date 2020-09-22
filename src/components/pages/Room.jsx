@@ -7,7 +7,6 @@ import { db } from '../../config/firebase'
 import RecoHeader from '../organisms/RecoHeader'
 import TypeSelectTab from '../organisms/TypeSelectTab'
 import MoveTopButton from '../atoms/MoveTopButton'
-import { useHistory } from 'react-router-dom'
 
 const Room = () => {
 
@@ -18,7 +17,6 @@ const Room = () => {
     const [comicMessages, setComicMessages] = useState('')
     const [othersMessages, setOthersMessages] = useState('')
 
-    const history = useHistory()
 
     const setMessagesTypes = [
         {
@@ -71,6 +69,10 @@ const Room = () => {
             <RecoHeader pageType="Post Page" />
             <TypeSelectTab
                 messagesTypes={messagesTypes}
+                xsTop="56px"
+                smTop="64px"
+                xsMarginTop="100px"
+                smMarginTop="108px"
             />
             <MoveTopButton />
         </>
