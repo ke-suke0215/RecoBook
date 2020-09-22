@@ -40,7 +40,7 @@ const DrawerList = () => {
     const drawerContents = [
         {
             icon: <HomeRoundedIcon />,
-            text: "Post",
+            text: "Post Page",
             func: postSubmit
         },
         {
