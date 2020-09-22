@@ -47,7 +47,6 @@ const BookPostDialog = ({ open, handleClose }) => {
 
     const user = useContext(AuthContext)
 
-
     ////キャンセルボタンの関数////
     const handleCloseDialog = () => {
         setTitle('')
@@ -61,6 +60,8 @@ const BookPostDialog = ({ open, handleClose }) => {
     ////投稿追加時の関数////
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        console.log(user.displayName)
 
         if (title === "" || author === "" || detail === "" || type === "" || review === "") {
             alert('空欄があります。')
@@ -83,6 +84,30 @@ const BookPostDialog = ({ open, handleClose }) => {
             }), 800
         )
     }
+    ////投稿画面インプット表示用配列////
+    const labelNames = [
+        {
+            name: title,
+            label: "タイトル",
+            row: 1,
+            multiline: false,
+            setValue: setTitle,
+        },
+        {
+            name: author,
+            label: "著者",
+            row: 1,
+            multiline: false,
+            setValue: setAuthor,
+        },
+        {
+            name: detail,
+            label: "内容・感想",
+            row: 4,
+            multiline: true,
+            setValue: setDetail,
+        },
+    ]
 
     return (
         <>
@@ -113,36 +138,22 @@ const BookPostDialog = ({ open, handleClose }) => {
                             alignItems='center'
                             spacing={2}
                         >
-                            <Grid item xs={12}>
-                                <PostInput
-                                    name={title}
-                                    type="text"
-                                    label="タイトル"
-                                    row={1}
-                                    multiline="false"
-                                    setValue={setTitle}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <PostInput
-                                    name={author}
-                                    type="text"
-                                    label="著者"
-                                    multiline="false"
-                                    row={1}
-                                    setValue={setAuthor}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <PostInput
-                                    name={detail}
-                                    type="text"
-                                    label="内容・感想"
-                                    multiline="true"
-                                    row={4}
-                                    setValue={setDetail}
-                                />
-                            </Grid>
+                            {
+                                labelNames.map(labelName => {
+                                    return (
+                                        <Grid item xs={12}>
+                                            <PostInput
+                                                name={labelName.name}
+                                                type="text"
+                                                label={labelName.label}
+                                                multiline={labelName.multiline}
+                                                row={labelName.row}
+                                                setValue={labelName.setValue}
+                                            />
+                                        </Grid>
+                                    )
+                                })
+                            }
                             <Grid item xs={12}>
                                 <TypeSelect
                                     type={type}

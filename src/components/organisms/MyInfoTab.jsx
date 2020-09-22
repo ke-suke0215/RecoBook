@@ -20,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const MyInfoTab = ({ content }) => {
+const MyInfoTab = () => {
     const classes = useStyles();
 
     return (
         <>
             <AppBar
                 position="static"
-                color="secondary"
+                color="default"
                 className={classes.appBar}
             >
                 <Grid

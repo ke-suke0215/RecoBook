@@ -2,9 +2,9 @@
 /////ヘルプページ////////
 //////////////////////////
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { db } from '../../config/firebase'
-
+import { AuthContext } from '../../AuthService'
 import RecoHeader from '../organisms/RecoHeader'
 import MoveTopButton from '../atoms/MoveTopButton'
 import MyInfoTab from '../organisms/MyInfoTab'
@@ -19,6 +19,7 @@ const MyPage = () => {
     const [comicMessages, setComicMessages] = useState('')
     const [othersMessages, setOthersMessages] = useState('')
 
+    const user = useContext(AuthContext)
 
     const setMessagesTypes = [
         {
@@ -59,6 +60,7 @@ const MyPage = () => {
                 const messages = snapshot.docs.map(doc => {
                     return doc.data()
                 })
+                console.log(user)
                 setAllMessages(messages)
                 setMessagesTypes.map(type => {
                     type.setMessages(messages.filter(message => message.type === type.typeText))
