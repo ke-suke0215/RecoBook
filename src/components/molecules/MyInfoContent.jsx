@@ -19,7 +19,6 @@ const MyInfoContent = ({ label, content }) => {
     const classes = useStyles();
     const user = useContext(AuthContext)
 
-
     console.log(user)
     // console.log(user.displayName)
 

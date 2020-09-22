@@ -60,6 +60,7 @@ const MyPage = () => {
                 const messages = snapshot.docs.map(doc => {
                     return doc.data()
                 })
+                console.log(user)
                 setAllMessages(messages)
                 setMessagesTypes.map(type => {
                     type.setMessages(messages.filter(message => message.type === type.typeText))
