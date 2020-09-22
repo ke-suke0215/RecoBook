@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
     block: {
         display: 'block',
-        marginBottom: '10px'
+        // marginBottom: '10px'
     },
 }));
 

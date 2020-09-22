@@ -2,13 +2,13 @@
 //////ジャンル選択タブ///////
 //////////////////////////
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import React from 'react'
+import PropTypes from 'prop-types'
+import SwipeableViews from 'react-swipeable-views'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 import TabParts from '../atoms/TabParts'
 import AllPost from '../organisms/AllPost'
 
@@ -38,32 +38,33 @@ TabPanel.propTypes = {
     value: PropTypes.any.isRequired,
 };
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        width: '100%',
-        backgroundColor: theme.palette.secondary,
-    },
-    appBar: {
-        position: 'fixed',
-        [theme.breakpoints.down('xs')]: {
-            top: '56px',
-        },
-        [theme.breakpoints.up('sm')]: {
-            top: '64px',
-        },
-    },
-    tabPanel: {
-        [theme.breakpoints.down('xs')]: {
-            marginTop: '100px'
-        },
-        [theme.breakpoints.up('sm')]: {
-            marginTop: '108px'
-        },
-    }
-}));
+export default function TypeSelectTab({ messagesTypes, xsTop, smTop, xsMarginTop, smMarginTop, }) {
 
-export default function TypeSelectTab({ messagesTypes, history }) {
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            flexGrow: 1,
+            width: '100%',
+            backgroundColor: theme.palette.secondary,
+        },
+        appBar: {
+            position: 'fixed',
+            [theme.breakpoints.down('xs')]: {
+                top: xsTop,
+            },
+            [theme.breakpoints.up('sm')]: {
+                top: smTop,
+            },
+        },
+        tabPanel: {
+            [theme.breakpoints.down('xs')]: {
+                marginTop: xsMarginTop
+            },
+            [theme.breakpoints.up('sm')]: {
+                marginTop: smMarginTop
+            },
+        }
+    }));
+
     const classes = useStyles();
     const theme = useTheme();
 
@@ -79,7 +80,11 @@ export default function TypeSelectTab({ messagesTypes, history }) {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" color="default" className={classes.appBar}>
+            <AppBar
+                position="static"
+                color="default"
+                className={classes.appBar}
+            >
                 <TabParts
                     value={value}
                     handleChange={handleChange}

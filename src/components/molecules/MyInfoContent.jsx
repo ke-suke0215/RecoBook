@@ -1,7 +1,3 @@
-///////////////////////////////
-//投稿欄のtitle,author,type表示欄/
-///////////////////////////////
-
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles'
@@ -13,13 +9,12 @@ const useStyles = makeStyles((theme) => ({
         display: 'block',
     },
     box: {
-        paddingTop: '8px',
-        paddingBottom: '8px',
-        display: 'flex'
+        display: 'flex',
+        justifyContent: 'center'
     }
 }));
 
-const PostOverview = ({ label, content }) => {
+const MyInfoContent = ({ label, content }) => {
     const classes = useStyles();
 
     return (
@@ -39,4 +34,4 @@ const PostOverview = ({ label, content }) => {
     )
 }
 
-export default PostOverview
+export default MyInfoContent

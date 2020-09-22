@@ -4,6 +4,7 @@
 
 import React from 'react'
 import RecoHeader from '../organisms/RecoHeader'
+import MuInfoTab from '../organisms/MyInfoTab'
 
 const Help = () => {
     return (
