@@ -20,7 +20,7 @@ const RequestText = () => {
     return (
         <div className={classes.mainWrap}>
             <p>
-                不具合やご要望がありましたら、下記のフォームお気軽にお申し付けください。
+                不具合やご要望がありましたら、下記のフォームよりお気軽にお申し付けください。
             </p>
         </div>
     )

@@ -57,6 +57,7 @@ const Room = () => {
                 const messages = snapshot.docs.map(doc => {
                     return doc.data()
                 })
+                console.log(snapshot.docs)
                 setAllMessages(messages)
                 setMessagesTypes.map(type => {
                     type.setMessages(messages.filter(message => message.type === type.typeText))
