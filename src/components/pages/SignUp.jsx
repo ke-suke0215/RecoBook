@@ -97,6 +97,8 @@ export default function SignUp({ history }) {
                                     value="userName"
                                     label="User Name"
                                     register={register}
+                                    row={1}
+                                    multiline={false}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -104,6 +106,8 @@ export default function SignUp({ history }) {
                                     value="email"
                                     label="Email Address"
                                     register={register}
+                                    row={1}
+                                    multiline={false}
                                 />
                             </Grid>
                             <Grid item xs={12}>
