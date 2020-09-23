@@ -5,7 +5,7 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 
-const RecoInput = ({ value, label, register }) => {
+const RecoInput = ({ value, label, register, row, multiline, }) => {
     return (
         <>
             <TextField
@@ -20,6 +20,8 @@ const RecoInput = ({ value, label, register }) => {
                 inputProps={{
                     ref: register
                 }}
+                rows={row}
+                multiline={multiline}
             />
         </>
     )

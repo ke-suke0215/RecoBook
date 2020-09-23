@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles'
 import AppExplanation from '../atoms/AppExplanation'
 import HowToUse from '../atoms/HowToUse'
+import RequestContent from '../molecules/RequestContent';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -94,7 +95,7 @@ export default function CustomizedAccordions() {
         {
             panelNum: "panel3",
             tabText: "お問い合わせ",
-            contentText: "3333333",
+            contentText: <RequestContent />,
             ariaControls: "panel3d-content",
             id: "panel3d-header",
         },
@@ -116,9 +117,7 @@ export default function CustomizedAccordions() {
                                 <Typography>{type.tabText}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography>
-                                    {type.contentText}
-                                </Typography>
+                                {type.contentText}
                             </AccordionDetails>
                         </Accordion>
                     )

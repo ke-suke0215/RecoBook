@@ -20,7 +20,6 @@ export default function PostInput({
                 variant="outlined"
                 fullWidth
                 required
-                variant="outlined"
                 type={type}
                 id={name}
                 label={label}

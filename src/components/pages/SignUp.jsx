@@ -13,7 +13,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { MuiThemeProvider } from '@material-ui/core/styles'
 import { theme } from '../../materialui/theme'
 import RecoInput from '../atoms/RecoInput'
 import PasswordInput from '../atoms/PasswordInput'
@@ -70,63 +69,65 @@ export default function SignUp({ history }) {
     }
 
     return (
-        <MuiThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Paper className={classes.paper}>
-                    <Typography
-                        component="h1"
-                        variant="h5"
-                        style={{ color: '#5f4339' }}
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <Paper className={classes.paper}>
+                <Typography
+                    component="h1"
+                    variant="h5"
+                    style={{ color: '#5f4339' }}
+                >
+                    Create Account
+              </Typography>
+                <form
+                    className={classes.form}
+                    noValidate
+                    onSubmit={handleSubmit(onSubmit)}
+                >
+                    <Grid
+                        container
+                        spacing={2}
+                        justify="center"
+                        alignItems="center"
                     >
-                        Create Account
-                    </Typography>
-                    <form
-                        className={classes.form}
-                        noValidate
-                        onSubmit={handleSubmit(onSubmit)}
-                    >
-                        <Grid
-                            container
-                            spacing={2}
-                            justify="center"
-                            alignItems="center"
-                        >
-                            <Grid item xs={12}>
-                                <RecoInput
-                                    value="userName"
-                                    label="User Name"
-                                    register={register}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <RecoInput
-                                    value="email"
-                                    label="Email Address"
-                                    register={register}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <PasswordInput register={register} />
-                            </Grid>
-                            <Grid item xs={6} >
-                                <RecoButton
-                                    className={classes.submit}
-                                    text="Create"
-                                />
-                            </Grid>
+                        <Grid item xs={12}>
+                            <RecoInput
+                                value="userName"
+                                label="User Name"
+                                register={register}
+                                row={1}
+                                multiline={false}
+                            />
                         </Grid>
-                    </form>
-                    <Grid item>
-                        <Button
-                            color="primary"
-                            onClick={toLoginSubmit}
-                        >
-                            ログイン画面へ
-                    </Button>
+                        <Grid item xs={12}>
+                            <RecoInput
+                                value="email"
+                                label="Email Address"
+                                register={register}
+                                row={1}
+                                multiline={false}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <PasswordInput register={register} />
+                        </Grid>
+                        <Grid item xs={6} >
+                            <RecoButton
+                                className={classes.submit}
+                                text="Create"
+                            />
+                        </Grid>
                     </Grid>
-                </Paper>
-            </Container >
-        </MuiThemeProvider >
-    );
+                </form>
+                <Grid item>
+                    <Button
+                        color="primary"
+                        onClick={toLoginSubmit}
+                    >
+                        ログイン画面へ
+              </Button>
+                </Grid>
+            </Paper>
+        </Container >
+    )
 }

@@ -95,6 +95,8 @@ export default function Login({ history }) {
                                 value="email"
                                 label="Email Address"
                                 register={register}
+                                row={1}
+                                multiline={false}
                             />
                         </Grid>
                         <Grid item xs={12}>

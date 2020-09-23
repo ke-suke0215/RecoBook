@@ -19,70 +19,89 @@ import { db } from '../../config/firebase'
 
 
 const useStyles = makeStyles((theme) => ({
+    paper: {
+        marginTop: theme.spacing(8),
+        padding: theme.spacing(4),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    form: {
+        width: '100%',
+        marginTop: theme.spacing(3),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 0),
 
+    },
 }));
+
 
 const SendRequest = () => {
     const classes = useStyles();
 
+    const user = useContext(AuthContext)
+
     const { register, handleSubmit, watch, errors } = useForm();
+
     const onSubmit = data => {
         // data.value = value
         console.log(data)
-        db.collection('messages').add({
+        db.collection('requests').add({
             ...data,
-            createdAt: new Date()
+            email: user.email,
         })
     }
 
     return (
         <>
-            <Paper>
-                <Typography
-                    component="h1"
-                    variant="h5"
-                    style={{ color: '#5f4339' }}
-                >
-                    お問い合わせフォーム
-                </Typography>
-                <form
-                    onSubmit={handleSubmit(onSubmit)}
-                >
-                    <Grid
-                        container spacing={2}
-                        justify="center"
-                        alignItems="center"
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <Paper className={classes.paper}>
+                    <Typography
+                        component="h1"
+                        variant="h5"
+                        style={{ color: '#5f4339' }}
                     >
-                        <Grid item xs={12}>
-                            <RecoInput
-                                value="name"
-                                label="お名前"
-                                register={register}
-                            />
+                        Form
+                    </Typography>
+                    <form
+                        className={classes.form}
+                        onSubmit={handleSubmit(onSubmit)}
+                    >
+                        <Grid
+                            container spacing={2}
+                            justify="center"
+                            alignItems="center"
+                        >
+                            <Grid item xs={12}>
+                                <RecoInput
+                                    value="name"
+                                    label="お名前"
+                                    register={register}
+                                    row={1}
+                                    multiline={false}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <RecoInput
+                                    value="content"
+                                    label="お問い合わせ内容"
+                                    register={register}
+                                    row={5}
+                                    multiline={true}
+                                />
+                            </Grid>
+                            <Grid item xs={6} >
+                                <RecoButton
+                                    className={classes.submit}
+                                    text="Send"
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
-                            <RecoInput
-                                value="email"
-                                label="メールアドレス"
-                                register={register}
-                            />
-                        </Grid>
-                    </Grid>
-                    {/* <Grid item xs={12}>
-                            <PostInput
-                                value="email"
-                                label="メールアドレス"
-                                register={register}
-                            />
-                        </Grid> */}
-                    <Grid item xs={6} >
-                        <RecoButton
-                            className={classes.submit}
-                            text="Login"
-                        />
-                    </Grid>
-                </form>
-            </Paper>
+                    </form>
+                </Paper>
+            </Container >
 
         </>
     )
