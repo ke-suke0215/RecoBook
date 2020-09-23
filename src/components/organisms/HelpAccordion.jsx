@@ -1,3 +1,7 @@
+////////////////////////
+////Helpページ内容///////
+///////////////////////
+
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
@@ -5,6 +9,8 @@ import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles'
+import AppExplanation from '../atoms/AppExplanation'
+import HowToUse from '../atoms/HowToUse'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
             marginTop: '64px',
         },
     },
-
 }));
 
 const Accordion = withStyles({
@@ -41,6 +46,7 @@ const AccordionSummary = withStyles({
     root: {
         backgroundColor: '#d7ccc8',
         borderBottom: '1px solid rgba(0, 0, 0, .125)',
+        paddingLeft: '50px',
         marginBottom: -1,
         minHeight: 56,
         '&$expanded': {
@@ -49,7 +55,7 @@ const AccordionSummary = withStyles({
     },
     content: {
         '&$expanded': {
-            margin: '12px 0',
+            margin: '0px 0',
         },
     },
     expanded: {},
@@ -57,7 +63,7 @@ const AccordionSummary = withStyles({
 
 const AccordionDetails = withStyles((theme) => ({
     root: {
-        padding: theme.spacing(2),
+        padding: theme.spacing(4),
     },
 }))(MuiAccordionDetails);
 
@@ -74,73 +80,50 @@ export default function CustomizedAccordions() {
         {
             panelNum: "panel1",
             tabText: "アプリの概要",
-            contentText: "11111",
+            contentText: <AppExplanation />,
+            ariaControls: "panel1d-content",
+            id: "panel1d-header",
         },
         {
             panelNum: "panel2",
             tabText: "使用方法",
-            contentText: "2222223",
+            contentText: <HowToUse />,
+            ariaControls: "panel2d-content",
+            id: "panel2d-header",
         },
         {
             panelNum: "panel3",
             tabText: "お問い合わせ",
             contentText: "3333333",
+            ariaControls: "panel3d-content",
+            id: "panel3d-header",
         },
     ]
 
     return (
         <div className={classes.root}>
-            {/* {
-                accordionTypes.map(accordionType => {
-                    return(
-                        <Accordion square expanded={expanded === panelNum} onChange={handleChange(panelNum)}>
-                            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                <Typography>アプリの概要</Typography>
+            {
+                accordionTypes.map(type => {
+                    return (
+                        <Accordion
+                            square expanded={expanded === type.panelNum}
+                            onChange={handleChange(type.panelNum)}
+                        >
+                            <AccordionSummary
+                                aria-controls={type.ariaControls}
+                                id={type.id}
+                            >
+                                <Typography>{type.tabText}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography>
-                                    １つめ
+                                    {type.contentText}
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
                     )
                 })
-            } */}
-            <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                    <Typography>アプリの概要</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        １つめ
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-                <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                    <Typography>使用方法</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        2つめ
-                        2つめ
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-                <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                    <Typography>お問い合わせ</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        fdn
-                        fdsa
-                        fdsa
-                        fd
-                        ds
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>
+            }
         </div>
     );
 }

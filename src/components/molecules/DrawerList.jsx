@@ -38,6 +38,7 @@ const DrawerList = () => {
     const logoutSubmit = e => {
         e.preventDefault()
         firebase.auth().signOut()
+        history.push("/login")
         console.log("Logout")
     }
 

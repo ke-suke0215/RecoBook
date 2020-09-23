@@ -19,6 +19,7 @@ export default function PostInput({
                 boo
                 variant="outlined"
                 fullWidth
+                required
                 variant="outlined"
                 type={type}
                 id={name}
