@@ -81,9 +81,9 @@ const SendRequest = () => {
                             text="Login"
                         />
                     </Grid>
-                    </Grid>
                 </form>
-        </Paper>
+            </Paper>
+
         </>
     )
 }
