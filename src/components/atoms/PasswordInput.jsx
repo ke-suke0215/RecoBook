@@ -15,7 +15,7 @@ const RecoInput = ({ register }) => {
                 required
                 fullWidth
                 id="password"
-                label="Password"
+                label="Password(6文字以上)"
                 autoFocus
                 type="password"
                 inputProps={{
