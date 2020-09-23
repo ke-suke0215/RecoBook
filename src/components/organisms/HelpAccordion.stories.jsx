@@ -1,13 +1,13 @@
 import React from 'react';
 
-import FilterPost from './FilterPost';
+import HelpAccordion from './HelpAccordion';
 
 export default {
-    title: 'FilterPost',
-    component: FilterPost,
+    title: 'HelpAccordion',
+    component: HelpAccordion,
 };
 
-const Template = (args) => <FilterPost {...args} />;
+const Template = (args) => <HelpAccordion {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
