@@ -12,7 +12,9 @@ import firebase from '../../config/firebase'
 import DrawerItem from '../atoms/DrawerItem'
 import { useHistory } from 'react-router-dom'
 
+
 const DrawerList = () => {
+
     const history = useHistory()
 
     const postSubmit = e => {
@@ -20,16 +22,19 @@ const DrawerList = () => {
         console.log("post")
         history.push("/")
     }
+
     const myPageSubmit = e => {
         e.preventDefault()
         console.log("my page")
         history.push("/mypage")
     }
+
     const helpSubmit = e => {
         e.preventDefault()
         console.log("help")
         history.push("/help")
     }
+
     const logoutSubmit = e => {
         e.preventDefault()
         firebase.auth().signOut()

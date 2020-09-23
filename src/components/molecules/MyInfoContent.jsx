@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
 import OverviewContent from '../atoms/OverviewContent'
-import { AuthContext } from '../../AuthService'
+import { AuthContext } from '../../AuthService';
 
 const useStyles = makeStyles((theme) => ({
     block: {
@@ -16,11 +16,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MyInfoContent = ({ label, content }) => {
-    const classes = useStyles();
-    const user = useContext(AuthContext)
 
-    console.log(user)
-    // console.log(user.displayName)
+    const user = useContext(AuthContext)
+    let userId = ""
+
+    if (user !== null) {
+        userId = user.uid
+    }
+
+    const classes = useStyles();
 
     return (
         <>

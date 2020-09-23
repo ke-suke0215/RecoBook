@@ -70,8 +70,42 @@ export default function CustomizedAccordions() {
         setExpanded(newExpanded ? panel : false);
     };
 
+    const accordionTypes = [
+        {
+            panelNum: "panel1",
+            tabText: "アプリの概要",
+            contentText: "11111",
+        },
+        {
+            panelNum: "panel2",
+            tabText: "使用方法",
+            contentText: "2222223",
+        },
+        {
+            panelNum: "panel3",
+            tabText: "お問い合わせ",
+            contentText: "3333333",
+        },
+    ]
+
     return (
         <div className={classes.root}>
+            {/* {
+                accordionTypes.map(accordionType => {
+                    return(
+                        <Accordion square expanded={expanded === panelNum} onChange={handleChange(panelNum)}>
+                            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                                <Typography>アプリの概要</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    １つめ
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    )
+                })
+            } */}
             <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                     <Typography>アプリの概要</Typography>
@@ -88,6 +122,7 @@ export default function CustomizedAccordions() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
+                        2つめ
                         2つめ
                     </Typography>
                 </AccordionDetails>

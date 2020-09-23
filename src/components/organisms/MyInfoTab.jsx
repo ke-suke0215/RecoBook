@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const MyInfoTab = () => {
+const MyInfoTab = ({ displayName, postNum }) => {
     const classes = useStyles();
 
     return (
@@ -39,12 +39,12 @@ const MyInfoTab = () => {
                 >
                     <Grid item xs={12} sm={4} >
                         <MyInfoContent
-                            label="Name"
-                            content="ssss"
+                            label="User Name"
+                            content={displayName}
                         />
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                        <MyInfoContent label="Number of Posts" content={10} />
+                        <MyInfoContent label="Number of Posts" content={postNum} />
                     </Grid>
                 </Grid>
             </AppBar>

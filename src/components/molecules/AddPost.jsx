@@ -61,8 +61,6 @@ const BookPostDialog = ({ open, handleClose }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        console.log(user.displayName)
-
         if (title === "" || author === "" || detail === "" || type === "" || review === "") {
             alert('空欄があります。')
             return
@@ -80,6 +78,7 @@ const BookPostDialog = ({ open, handleClose }) => {
                 type: type,
                 review: review,
                 user: user.displayName,
+                userId: user.uid,
                 createdAt: new Date(),
             }), 800
         )

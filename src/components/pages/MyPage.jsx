@@ -21,6 +21,16 @@ const MyPage = () => {
 
     const user = useContext(AuthContext)
 
+    let userId = ""
+    let displayName = ""
+
+    if (user !== null) {
+        console.log(user)
+        userId = user.uid
+        displayName = user.displayName
+        console.log(userId)
+    }
+
     const setMessagesTypes = [
         {
             setMessages: setNovelMessages,
@@ -60,18 +70,23 @@ const MyPage = () => {
                 const messages = snapshot.docs.map(doc => {
                     return doc.data()
                 })
-                console.log(user)
-                setAllMessages(messages)
+                console.log()
+                setAllMessages(messages.filter(message => message.userId === userId))
                 setMessagesTypes.map(type => {
-                    type.setMessages(messages.filter(message => message.type === type.typeText))
+                    type.setMessages(messages.filter(message => message.type === type.typeText && message.userId === userId))
                 })
             })
     }, [])
 
+    const postNum = allMessages.length
+
     return (
         <>
             <RecoHeader pageType="My Page" />
-            <MyInfoTab />
+            <MyInfoTab
+                displayName={displayName}
+                postNum={postNum}
+            />
             <TypeSelectTab
                 messagesTypes={messagesTypes}
                 xsTop="144px"
