@@ -20,7 +20,7 @@ const RecoInput = ({ value, label, register, row, multiline, }) => {
                 inputProps={{
                     ref: register
                 }}
-                row={row}
+                rows={row}
                 multiline={multiline}
             />
         </>
