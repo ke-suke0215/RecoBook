@@ -20,19 +20,6 @@ import RecoButton from '../atoms/RecoButton'
 import firebase from '../../config/firebase.js'
 import Button from '@material-ui/core/Button';
 
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Your Website
-      </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
 ///スタイル設定///
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -92,7 +79,7 @@ export default function Login({ history }) {
                     style={{ color: '#5f4339' }}
                 >
                     Login
-                    </Typography>
+                </Typography>
                 <form
                     className={classes.form}
                     noValidate
@@ -130,9 +117,6 @@ export default function Login({ history }) {
                     </Button>
                 </Grid>
             </Paper>
-            <Box mt={5}>
-                <Copyright />
-            </Box>
         </Container >
     );
 }

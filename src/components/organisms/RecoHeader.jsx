@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const PostHeader = ({ pageType }) => {
+const RecoHeader = ({ pageType }) => {
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -72,4 +72,4 @@ const PostHeader = ({ pageType }) => {
     )
 }
 
-export default PostHeader
+export default RecoHeader
