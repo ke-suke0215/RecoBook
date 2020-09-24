@@ -10,6 +10,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteDialog from '../atoms/DeleteDialog'
 
 const DeleteButton = ({ messageId, deleteIconDisplay }) => {
 
@@ -48,24 +49,12 @@ const DeleteButton = ({ messageId, deleteIconDisplay }) => {
                     }}
                 />
             </IconButton>
-            <Dialog
+            <DeleteDialog
                 open={open}
-                onClose={handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <DialogTitle id="alert-dialog-title">
-                    投稿を削除してよろしいですか？
-                </DialogTitle>
-                <DialogActions>
-                    <Button onClick={() => handleDelete(messageId)} color="primary">
-                        OK
-                    </Button>
-                    <Button onClick={handleClose} color="primary" autoFocus>
-                        Cancel
-                    </Button>
-                </DialogActions>
-            </Dialog>
+                handleClose={handleClose}
+                handleDelete={handleDelete}
+                messageId={messageId}
+            />
         </div >
     )
 }
