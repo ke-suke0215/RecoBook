@@ -38,7 +38,14 @@ TabPanel.propTypes = {
     value: PropTypes.any.isRequired,
 };
 
-export default function TypeSelectTab({ messagesTypes, xsTop, smTop, xsMarginTop, smMarginTop, }) {
+export default function TypeSelectTab({
+    messagesTypes,
+    xsTop,
+    smTop,
+    xsMarginTop,
+    smMarginTop,
+    deleteIconDisplay,
+}) {
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -98,8 +105,11 @@ export default function TypeSelectTab({ messagesTypes, xsTop, smTop, xsMarginTop
                 {
                     messagesTypes.map((type, index) => {
                         return (
-                            <TabPanel value={value} index={index} className={classes.tabPanel}>
-                                <AllPost messages={type} />
+                            <TabPanel value={value} index={index} className={classes.tabPanel} key={index}>
+                                <AllPost
+                                    messages={type}
+                                    deleteIconDisplay={deleteIconDisplay}
+                                />
                             </TabPanel>
                         )
                     })

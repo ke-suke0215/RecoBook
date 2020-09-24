@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const BookPostDialog = ({ open, handleClose }) => {
+const AddPost = ({ open, handleClose }) => {
     const classes = useStyles();
 
     const [title, setTitle] = useState('')
@@ -140,7 +140,7 @@ const BookPostDialog = ({ open, handleClose }) => {
                             {
                                 labelNames.map(labelName => {
                                     return (
-                                        <Grid item xs={12}>
+                                        <Grid item xs={12} key={labelName.label}>
                                             <PostInput
                                                 name={labelName.name}
                                                 type="text"
@@ -186,4 +186,4 @@ const BookPostDialog = ({ open, handleClose }) => {
     )
 }
 
-export default BookPostDialog
+export default AddPost

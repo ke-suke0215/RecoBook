@@ -5,14 +5,18 @@
 import React from 'react'
 import EachPost from '../molecules/EachPost'
 
-const AllPost = ({ messages }) => {
+const AllPost = ({ messages, deleteIconDisplay }) => {
     return (
         <>
             {
                 messages &&
                 messages.map(message => {
                     return (
-                        <EachPost message={message} key={message.title} />
+                        <EachPost
+                            message={message}
+                            key={message.title}
+                            deleteIconDisplay={deleteIconDisplay}
+                        />
                     )
                 })
             }

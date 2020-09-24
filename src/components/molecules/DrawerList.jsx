@@ -76,6 +76,7 @@ const DrawerList = () => {
                                 icon={content.icon}
                                 text={content.text}
                                 onSubmit={content.func}
+                                key={content.text}
                             />
                         )
                     })

@@ -16,6 +16,7 @@ import RecoButton from '../atoms/RecoButton'
 import firebase from '../../config/firebase.js'
 import Button from '@material-ui/core/Button';
 import { db } from '../../config/firebase'
+import SendDoneDialog from '../atoms/SendDoneDialog'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,17 +41,25 @@ const useStyles = makeStyles((theme) => ({
 const SendRequest = () => {
     const classes = useStyles();
 
+    /////送信完了ダイアログ開閉管理/////
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
     const user = useContext(AuthContext)
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, watch, errors, reset } = useForm();
 
-    const onSubmit = data => {
+    const onSubmit = (data, e) => {
         // data.value = value
         console.log(data)
         db.collection('requests').add({
             ...data,
             email: user.email,
         })
+        e.target.reset()
+        handleClickOpen()
     }
 
     return (
@@ -101,8 +110,8 @@ const SendRequest = () => {
                         </Grid>
                     </form>
                 </Paper>
+                <SendDoneDialog open={open} setOpen={setOpen} />
             </Container >
-
         </>
     )
 }

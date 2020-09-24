@@ -3,16 +3,11 @@
 //////////////////////////
 
 import React from 'react'
-import ListItem from '@material-ui/core/ListItem';
 import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import PostUserName from '../atoms/PostUserName'
-import PostOverview from './PostOverview'
-import PostDetail from '../atoms/PostDetail';
-import OutputReview from '../atoms/OutputReview'
 import PostContent from './PostContent'
-
+import DeleteButton from './DeleteButton'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -20,17 +15,32 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '50ch',
         margin: 'auto',
         padding: '30px',
+        paddingTop: '20px',
         marginBottom: '20px'
-    }
+    },
+    wrap: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        marginBottom: '10px',
+        borderBottom: '1px solid #777',
+        // padding: '0'
+    },
 }));
 
-const EachPost = ({ message }) => {
+const EachPost = ({ message, deleteIconDisplay }) => {
+
     const classes = useStyles();
 
     return (
         <>
             <Paper className={classes.paper}>
-                <PostUserName user={message.user} />
+                <div className={classes.wrap}>
+                    <PostUserName user={message.user} />
+                    <DeleteButton
+                        messageId={message.id}
+                        deleteIconDisplay={deleteIconDisplay}
+                    />
+                </div>
                 <PostContent message={message} />
             </Paper>
         </>
