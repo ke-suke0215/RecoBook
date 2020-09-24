@@ -109,6 +109,7 @@ export default function CustomizedAccordions() {
                         <Accordion
                             square expanded={expanded === type.panelNum}
                             onChange={handleChange(type.panelNum)}
+                            key={type.panelNum}
                         >
                             <AccordionSummary
                                 aria-controls={type.ariaControls}

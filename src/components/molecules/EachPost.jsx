@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const EachPost = ({ message }) => {
+const EachPost = ({ message, deleteIconDisplay }) => {
 
     const classes = useStyles();
 
@@ -36,7 +36,10 @@ const EachPost = ({ message }) => {
             <Paper className={classes.paper}>
                 <div className={classes.wrap}>
                     <PostUserName user={message.user} />
-                    <DeleteButton messageId={message.id} />
+                    <DeleteButton
+                        messageId={message.id}
+                        deleteIconDisplay={deleteIconDisplay}
+                    />
                 </div>
                 <PostContent message={message} />
             </Paper>

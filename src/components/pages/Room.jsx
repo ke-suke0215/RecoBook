@@ -55,9 +55,9 @@ const Room = () => {
             .orderBy("createdAt", "desc")
             .onSnapshot((snapshot) => {
                 const messages = snapshot.docs.map(doc => {
-                    return doc.data()
+                    return { ...doc.data(), id: doc.id }
                 })
-                console.log(snapshot.docs)
+                console.log(messages)
                 setAllMessages(messages)
                 setMessagesTypes.map(type => {
                     type.setMessages(messages.filter(message => message.type === type.typeText))
@@ -74,6 +74,7 @@ const Room = () => {
                 smTop="64px"
                 xsMarginTop="100px"
                 smMarginTop="108px"
+                deleteIconDisplay={false}
             />
             <MoveTopButton />
         </>

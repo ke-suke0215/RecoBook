@@ -25,10 +25,8 @@ const MyPage = () => {
     let displayName = ""
 
     if (user !== null) {
-        console.log(user)
         userId = user.uid
         displayName = user.displayName
-        console.log(userId)
     }
 
     const setMessagesTypes = [
@@ -68,7 +66,7 @@ const MyPage = () => {
             .orderBy("createdAt", "desc")
             .onSnapshot((snapshot) => {
                 const messages = snapshot.docs.map(doc => {
-                    return doc.data()
+                    return { ...doc.data(), id: doc.id }
                 })
                 console.log()
                 setAllMessages(messages.filter(message => message.userId === userId))
@@ -93,6 +91,7 @@ const MyPage = () => {
                 smTop="108px"
                 xsMarginTop="192px"
                 smMarginTop="153px"
+                deleteIconDisplay={true}
             />
             <MoveTopButton />
 

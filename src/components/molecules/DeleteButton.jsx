@@ -1,3 +1,7 @@
+//////////////////////
+/////削除ボタンアイコン//
+///////////////////////
+
 import React from 'react'
 import { db } from '../../config/firebase.js'
 import Button from '@material-ui/core/Button';
@@ -7,7 +11,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const DeleteButton = ({ messageId }) => {
+const DeleteButton = ({ messageId, deleteIconDisplay }) => {
+
+    ////削除する関数//////
     const handleDelete = (id) => {
         db.collection("messages").doc(id).delete()
             .then(function () {
@@ -28,6 +34,8 @@ const DeleteButton = ({ messageId }) => {
         setOpen(false);
     };
 
+    console.log(messageId)
+
     return (
         <div>
             <IconButton
@@ -35,7 +43,9 @@ const DeleteButton = ({ messageId }) => {
                 onClick={handleClickOpen}
             >
                 <DeleteIcon
-                // style={{ display: 'none' }}
+                    style={{
+                        display: deleteIconDisplay ? 'block' : 'none'
+                    }}
                 />
             </IconButton>
             <Dialog
@@ -48,7 +58,7 @@ const DeleteButton = ({ messageId }) => {
                     投稿を削除してよろしいですか？
                 </DialogTitle>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={() => handleDelete(messageId)} color="primary">
                         OK
                     </Button>
                     <Button onClick={handleClose} color="primary" autoFocus>
@@ -56,7 +66,7 @@ const DeleteButton = ({ messageId }) => {
                     </Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </div >
     )
 }
 

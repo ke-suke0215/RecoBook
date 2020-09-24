@@ -29,7 +29,7 @@ const TabParts = ({ value, handleChange }) => {
             {
                 tabPartsArray.map((part, index) => {
                     return (
-                        <Tab label={part} {...a11yProps(index)} />
+                        <Tab label={part} {...a11yProps(index)} key={part} />
                     )
                 })
             }
