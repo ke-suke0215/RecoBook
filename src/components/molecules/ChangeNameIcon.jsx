@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     setting: {
         position: 'fixed',
         bottom: '22px',
-        left: '5%',
+        left: '22px',
     }
 }));
 
@@ -38,7 +38,9 @@ const ChangeNameIcon = () => {
                     color="primary"
                     onClick={handleClickOpen}
                 >
-                    <SettingsIcon />
+                    <SettingsIcon
+                        fontSize="large"
+                    />
                 </IconButton>
             </Tooltip>
             <ChangeNameDialog open={open} handleClose={handleClose} />

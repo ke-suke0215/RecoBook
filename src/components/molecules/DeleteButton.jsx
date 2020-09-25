@@ -35,7 +35,7 @@ const DeleteButton = ({ messageId, deleteIconDisplay }) => {
         setOpen(false);
     };
 
-    console.log(messageId)
+    // console.log(messageId)
 
     return (
         <div>

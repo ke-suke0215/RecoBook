@@ -37,13 +37,13 @@ const MyInfoTab = ({ displayName, postNum }) => {
                     justify="center"
                     spacing={3}
                 >
-                    <Grid item xs={12} sm={4} >
+                    <Grid item xs={12}>
                         <MyInfoContent
                             label="User Name"
                             content={displayName}
                         />
                     </Grid>
-                    <Grid item xs={12} sm={4}>
+                    <Grid item xs={12}>
                         <MyInfoContent label="Number of Posts" content={postNum} />
                     </Grid>
                 </Grid>

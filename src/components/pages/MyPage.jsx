@@ -77,6 +77,8 @@ const MyPage = () => {
             })
     }, [])
 
+
+
     const postNum = allMessages.length
 
     return (
@@ -89,9 +91,9 @@ const MyPage = () => {
             <TypeSelectTab
                 messagesTypes={messagesTypes}
                 xsTop="144px"
-                smTop="108px"
+                smTop="152px"
                 xsMarginTop="192px"
-                smMarginTop="153px"
+                smMarginTop="197px"
                 deleteIconDisplay={true}
             />
             <ChangeNameIcon />

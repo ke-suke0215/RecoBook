@@ -8,12 +8,16 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import { makeStyles } from '@material-ui/core/styles'
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
 import Grid from '@material-ui/core/Grid'
 import firebase from '../../config/firebase'
 import RecoInput from '../atoms/RecoInput'
 import RecoButton from '../atoms/RecoButton'
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import { useHistory } from 'react-router-dom'
+import { db } from '../../config/firebase'
+
 
 ////スタイル指定////
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
 const ChangeNameDialog = ({ open, handleClose }) => {
     const classes = useStyles();
 
+    const history = useHistory()
+
+
     //////react-hook-form導入//////
     const { register, handleSubmit, watch, errors } = useForm();
 
@@ -41,14 +48,16 @@ const ChangeNameDialog = ({ open, handleClose }) => {
             displayName: data.userName
         }).then(() => {
             console.log("success")
+            firebase.auth().signOut()
+            history.push("/login")
+            console.log("Logout")
         }).catch(err => {
             console.log(err)
             alert('変更できませんでした')
         })
-        e.target.reset()
-        handleClose()
+        // e.target.reset()
+        // handleClose()
     }
-
 
     return (
         <>
@@ -96,6 +105,16 @@ const ChangeNameDialog = ({ open, handleClose }) => {
                                 text="Save"
                                 className={classes.submit}
                             />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography
+                                style={{
+                                    color: '#555',
+                                    fontSize: '13px'
+                                }}
+                            >
+                                ※変更すると一度ログアウトされます。
+                            </Typography>
                         </Grid>
                     </form>
                 </DialogContent>
