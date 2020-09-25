@@ -3,9 +3,10 @@
 //////////////////////////
 
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import PostAddOutlinedIcon from '@material-ui/icons/PostAddOutlined';
 import AddPost from '../molecules/AddPost'
+import Tooltip from '@material-ui/core/Tooltip'
 
 export default function DialogIcon({ dialogIconDisplay }) {
     const [open, setOpen] = React.useState(false);
@@ -20,15 +21,19 @@ export default function DialogIcon({ dialogIconDisplay }) {
 
     return (
         <div>
-            <Button
-                color="inherit"
-                onClick={handleClickOpen}
+            <Tooltip
+                title="New Post"
                 style={{
                     display: dialogIconDisplay ? 'block' : 'none'
                 }}
             >
-                <PostAddOutlinedIcon />
-            </Button>
+                <IconButton
+                    color="inherit"
+                    onClick={handleClickOpen}
+                >
+                    <PostAddOutlinedIcon />
+                </IconButton>
+            </Tooltip>
             <AddPost
                 open={open}
                 handleClose={handleClose}

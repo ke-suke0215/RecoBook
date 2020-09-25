@@ -49,11 +49,10 @@ const SendRequest = () => {
 
     const user = useContext(AuthContext)
 
-    const { register, handleSubmit, watch, errors, reset } = useForm();
+    const { register, handleSubmit, watch, errors } = useForm();
 
     const onSubmit = (data, e) => {
         // data.value = value
-        console.log(data)
         db.collection('requests').add({
             ...data,
             email: user.email,
