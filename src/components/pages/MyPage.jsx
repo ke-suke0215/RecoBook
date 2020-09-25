@@ -9,6 +9,7 @@ import RecoHeader from '../organisms/RecoHeader'
 import MoveTopButton from '../atoms/MoveTopButton'
 import MyInfoTab from '../organisms/MyInfoTab'
 import TypeSelectTab from '../organisms/TypeSelectTab'
+import ChangeNameIcon from '../molecules/ChangeNameIcon'
 
 const MyPage = () => {
 
@@ -93,6 +94,7 @@ const MyPage = () => {
                 smMarginTop="153px"
                 deleteIconDisplay={true}
             />
+            <ChangeNameIcon />
             <MoveTopButton />
 
         </>
