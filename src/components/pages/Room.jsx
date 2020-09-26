@@ -51,7 +51,7 @@ const Room = () => {
         othersMessages,
     ]
 
-
+    /////firebseからデータ取得////
     useEffect(() => {
         db.collection('messages')
             .orderBy("createdAt", "desc")
