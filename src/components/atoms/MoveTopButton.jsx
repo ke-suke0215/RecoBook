@@ -18,7 +18,7 @@ const MoveTopButton = () => {
         margin: 0,
         top: 'auto',
         right: '5%',
-        bottom: 30,
+        bottom: "35px",
         left: 'auto',
         position: 'fixed',
     }

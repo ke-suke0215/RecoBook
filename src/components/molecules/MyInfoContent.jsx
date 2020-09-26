@@ -1,11 +1,14 @@
-import React, { useContext } from 'react'
+////////////////////////////////
+///名前、投稿数表示コンポーネント////
+////////////////////////////////
+
+import React from 'react'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
 import OverviewContent from '../atoms/OverviewContent'
-import { AuthContext } from '../../AuthService';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     block: {
         display: 'block',
     },
@@ -16,14 +19,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MyInfoContent = ({ label, content }) => {
-
-    const user = useContext(AuthContext)
-    let userId = ""
-
-    if (user !== null) {
-        userId = user.uid
-    }
-
     const classes = useStyles();
 
     return (

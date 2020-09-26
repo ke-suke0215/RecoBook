@@ -4,7 +4,7 @@
 
 import React from 'react'
 import Box from '@material-ui/core/Box'
-import { makeStyles, responsiveFontSizes } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import PostOverview from './PostOverview'
 import PostDetail from '../atoms/PostDetail';
 import OutputReview from '../atoms/OutputReview'

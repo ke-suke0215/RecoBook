@@ -1,20 +1,18 @@
+////////////////////////////
+////お問い合わせ投稿フォーム///
+///////////////////////////
+
 import React, { useContext } from 'react'
-import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../../AuthService'
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Link from '@material-ui/core/Link';
 import { useForm } from "react-hook-form";
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import RecoInput from '../atoms/RecoInput'
-import PasswordInput from '../atoms/PasswordInput'
 import RecoButton from '../atoms/RecoButton'
-import firebase from '../../config/firebase.js'
-import Button from '@material-ui/core/Button';
 import { db } from '../../config/firebase'
 import SendDoneDialog from '../atoms/SendDoneDialog'
 
@@ -49,7 +47,7 @@ const SendRequest = () => {
 
     const user = useContext(AuthContext)
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
 
     const onSubmit = (data, e) => {
         // data.value = value

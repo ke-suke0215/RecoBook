@@ -46,7 +46,6 @@ export default function TypeSelectTab({
     smMarginTop,
     deleteIconDisplay,
 }) {
-
     const useStyles = makeStyles((theme) => ({
         root: {
             flexGrow: 1,

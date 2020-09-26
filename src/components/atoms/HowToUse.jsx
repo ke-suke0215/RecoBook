@@ -38,8 +38,8 @@ const HowToUse = () => {
                 <div className={classes.content}>
                     <p>My Page</p>
                     <p className={classes.sentence}>
-                        自身の投稿のみ閲覧できる場です。<br />
-                        ユーザー名や過去の投稿数の確認、また投稿の削除をすることができます。
+                        自身の投稿、ユーザー名、投稿数を閲覧できる場です。<br />
+                        また投稿の削除やユーザー名の変更をすることができます。
                     </p>
                 </div>
                 <div className={classes.content}>
