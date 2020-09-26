@@ -4,6 +4,19 @@
 
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme) => ({
+    resize: {
+        fontFamily: 'sans-serif',
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '12px',
+        },
+        [theme.breakpoints.up('sm')]: {
+            fontSize: '14px',
+        },
+    },
+}))
 
 export default function PostInput({
     name,
@@ -13,6 +26,8 @@ export default function PostInput({
     multiline,
     setValue
 }) {
+    const classes = useStyles();
+
     return (
         <div>
             <TextField
@@ -31,6 +46,10 @@ export default function PostInput({
                 rows={row}
                 onChange={e => {
                     setValue(e.target.value)
+                }}
+                inputProps={{
+                    input: classes.resize,
+                    className: classes.resize,
                 }}
             />
         </div>
