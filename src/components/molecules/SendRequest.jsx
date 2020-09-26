@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
+    text: {
+        color: '#5f4339',
+    },
     form: {
         width: '100%',
         marginTop: theme.spacing(3),
@@ -67,7 +70,7 @@ const SendRequest = () => {
                     <Typography
                         component="h1"
                         variant="h5"
-                        style={{ color: '#5f4339' }}
+                        className={classes.text}
                     >
                         Form
                     </Typography>

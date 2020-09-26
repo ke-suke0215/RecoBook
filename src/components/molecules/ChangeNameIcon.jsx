@@ -1,3 +1,7 @@
+///////////////////////////////
+///ユーザー名変更用settingIcon///
+//////////////////////////////
+
 import React from 'react'
 import SettingsIcon from '@material-ui/icons/Settings';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,7 +16,6 @@ const useStyles = makeStyles(() => ({
         left: '22px',
     }
 }));
-
 
 const ChangeNameIcon = () => {
     const classes = useStyles();

@@ -21,6 +21,9 @@ import { AuthContext } from '../../AuthService'
 
 ////スタイル指定////
 const useStyles = makeStyles((theme) => ({
+    title: {
+        color: '#5f4339',
+    },
     form: {
         width: '100%',
         marginTop: theme.spacing(1),
@@ -30,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+    },
+    text: {
+        color: '#555',
+        fontSize: '13px',
     },
 }));
 
@@ -44,10 +51,8 @@ const ChangeNameDialog = ({ open, handleClose }) => {
     let displayName = ""
     if (user !== null) {
         userId = user.uid
-        // displayName = user.displayName
     }
 
-    //////react-hook-form導入//////
     const { register, handleSubmit } = useForm();
 
     /////submit時の関数/////
@@ -55,6 +60,7 @@ const ChangeNameDialog = ({ open, handleClose }) => {
         firebase.auth().currentUser.updateProfile({
             displayName: data.userName
         }).then(() => {
+            ///ユーザー名変更///
             displayName = user.displayName
             myMessages.map(myMessage => {
                 db.collection('messages').doc(myMessage.id).set({
@@ -72,6 +78,7 @@ const ChangeNameDialog = ({ open, handleClose }) => {
         })
     }
 
+    ///自身の投稿のみの配列作成////
     useEffect(() => {
         db.collection('messages')
             .orderBy("createdAt", "desc")
@@ -83,7 +90,6 @@ const ChangeNameDialog = ({ open, handleClose }) => {
                     setMyMessages(messages.filter(message => message.userId === userId))
                 )
             })
-        console.log('useEffect実行')
     }, [])
 
     console.log(myMessages)
@@ -99,7 +105,7 @@ const ChangeNameDialog = ({ open, handleClose }) => {
                 <Grid container justify="center">
                     <DialogTitle
                         id="form-dialog-title"
-                        style={{ color: '#5f4339' }}
+                        className={classes.title}
                     >
                         Change User Name
                     </DialogTitle>
@@ -136,10 +142,7 @@ const ChangeNameDialog = ({ open, handleClose }) => {
                         </Grid>
                         <Grid item xs={12}>
                             <Typography
-                                style={{
-                                    color: '#555',
-                                    fontSize: '13px'
-                                }}
+                                className={classes.text}
                             >
                                 ※変更すると一度ログアウトされます。
                             </Typography>

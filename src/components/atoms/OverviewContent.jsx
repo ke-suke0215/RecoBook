@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
     block: {
         display: 'block',
-        // marginBottom: '10px'
+        fontFamily: 'sans-serif',
     },
 }));
 
@@ -23,9 +23,6 @@ const OverviewContent = ({ content }) => {
                 variant="body2"
                 className={classes.block}
                 color="textPrimary"
-                style={{
-                    fontFamily: 'sans-serif',
-                }}
             >
                 {content}
             </Typography>

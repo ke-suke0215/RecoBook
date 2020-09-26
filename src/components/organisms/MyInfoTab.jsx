@@ -16,8 +16,6 @@ const useStyles = makeStyles((theme) => ({
             top: '64px',
         },
     },
-    container: {
-    },
 }));
 
 const MyInfoTab = ({ displayName, postNum }) => {
@@ -32,7 +30,6 @@ const MyInfoTab = ({ displayName, postNum }) => {
             >
                 <Grid
                     container
-                    className={classes.container}
                     alignItems="center"
                     justify="center"
                     spacing={3}
@@ -44,7 +41,10 @@ const MyInfoTab = ({ displayName, postNum }) => {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <MyInfoContent label="Number of Posts" content={postNum} />
+                        <MyInfoContent 
+                            label="Number of Posts" 
+                            content={postNum} 
+                        />
                     </Grid>
                 </Grid>
             </AppBar>

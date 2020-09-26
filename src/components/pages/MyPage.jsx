@@ -1,5 +1,5 @@
 //////////////////////////
-/////ヘルプページ////////
+/////Myページ////////
 //////////////////////////
 
 import React, { useEffect, useState, useContext } from 'react'
@@ -21,14 +21,15 @@ const MyPage = () => {
 
     const user = useContext(AuthContext)
 
+    ////uid,displayName取得////
     let userId = ""
     let displayName = ""
-
     if (user !== null) {
         userId = user.uid
         displayName = user.displayName
     }
 
+    ///Myページ内ジャンル別投稿作成用配列///
     const setMessagesTypes = [
         {
             setMessages: setNovelMessages,
@@ -52,6 +53,7 @@ const MyPage = () => {
         },
     ]
 
+    ////Myページジャンル別投稿/////
     const messagesTypes = [
         allMessages,
         novelMessages,
@@ -74,20 +76,6 @@ const MyPage = () => {
                 })
             })
     }, [])
-
-    // /////投稿のユーザー名書き換え//////
-    // useEffect(() => {
-    //     db.collection('messages')
-    //         .doc(allMessages[0].id).set({
-    //             user: user.displayName
-    //         }).then(() => {
-    //             console.log("success change user name")
-    //         }).catch(err => {
-    //             console.log(err)
-    //         })
-    // }, [])
-
-
 
     const postNum = allMessages.length
 

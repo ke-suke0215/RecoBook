@@ -19,12 +19,8 @@ import RecoButton from '../atoms/RecoButton'
 
 ////スタイル指定////
 const useStyles = makeStyles((theme) => ({
-    paper: {
-        marginTop: theme.spacing(8),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '500px'
+    title: {
+        color: '#5f4339',
     },
     form: {
         width: '100%',
@@ -80,7 +76,7 @@ const AddPost = ({ open, handleClose }) => {
                 user: user.displayName,
                 userId: user.uid,
                 createdAt: new Date(),
-            }), 800
+            }), 300
         )
     }
     ////投稿画面インプット表示用配列////
@@ -120,7 +116,7 @@ const AddPost = ({ open, handleClose }) => {
                 <Grid container justify="center">
                     <DialogTitle
                         id="form-dialog-title"
-                        style={{ color: '#5f4339' }}
+                        className={classes.title}
                     >
                         New Post
                     </DialogTitle>
