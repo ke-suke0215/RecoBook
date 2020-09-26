@@ -1,5 +1,5 @@
 //////////////////////
-/////削除ボタンアイコン//
+////削除ボタンアイコン///
 ///////////////////////
 
 import React from 'react'
@@ -24,14 +24,11 @@ const DeleteButton = ({ messageId, deleteIconDisplay }) => {
 
     const handleClickOpen = () => {
         setOpen(true);
-        console.log(db.collection("messages"))
     };
 
     const handleClose = () => {
         setOpen(false);
     };
-
-    // console.log(messageId)
 
     return (
         <>

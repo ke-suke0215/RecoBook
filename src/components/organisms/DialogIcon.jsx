@@ -9,12 +9,12 @@ import AddPost from '../molecules/AddPost'
 import Tooltip from '@material-ui/core/Tooltip'
 
 export default function DialogIcon({ dialogIconDisplay }) {
-    const [open, setOpen] = React.useState(false);
 
+    ///ダイアログ開閉////
+    const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
         setOpen(true);
     };
-
     const handleClose = () => {
         setOpen(false);
     };

@@ -49,7 +49,6 @@ const RecoHeader = ({ pageType }) => {
                         color="inherit"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        className={classes.menuButton}
                     >
                         <MenuIcon />
                     </IconButton>

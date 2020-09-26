@@ -68,6 +68,7 @@ const AccordionDetails = withStyles((theme) => ({
     },
 }))(MuiAccordionDetails);
 
+
 export default function CustomizedAccordions() {
     const classes = useStyles();
 
@@ -77,6 +78,7 @@ export default function CustomizedAccordions() {
         setExpanded(newExpanded ? panel : false);
     };
 
+    ////アコーディオン表示内容配列/////
     const accordionTypes = [
         {
             panelNum: "panel1",

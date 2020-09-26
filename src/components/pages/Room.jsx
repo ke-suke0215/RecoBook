@@ -17,7 +17,7 @@ const Room = () => {
     const [comicMessages, setComicMessages] = useState('')
     const [othersMessages, setOthersMessages] = useState('')
 
-
+    ///postpageジャンル別投稿作成用配列////
     const setMessagesTypes = [
         {
             setMessages: setNovelMessages,
@@ -41,6 +41,7 @@ const Room = () => {
         },
     ]
 
+    ////postpageジャンル別投稿///
     const messagesTypes = [
         allMessages,
         novelMessages,
@@ -50,6 +51,7 @@ const Room = () => {
         othersMessages,
     ]
 
+
     useEffect(() => {
         db.collection('messages')
             .orderBy("createdAt", "desc")
@@ -58,11 +60,8 @@ const Room = () => {
                     return { ...doc.data(), id: doc.id }
                 })
                 setAllMessages(messages)
-                setMessagesTypes.map((type, index) => {
+                setMessagesTypes.map(type => {
                     type.setMessages(messages.filter(message => message.type === type.typeText))
-                    return (
-                        messagesTypes[index]
-                    )
                 })
             })
     }, [])

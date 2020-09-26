@@ -17,24 +17,22 @@ const DrawerList = () => {
 
     const history = useHistory()
 
+    /////ページ左遷関数定義/////
     const postSubmit = e => {
         e.preventDefault()
         console.log("post")
         history.push("/")
     }
-
     const myPageSubmit = e => {
         e.preventDefault()
         console.log("my page")
         history.push("/mypage")
     }
-
     const helpSubmit = e => {
         e.preventDefault()
         console.log("help")
         history.push("/help")
     }
-
     const logoutSubmit = e => {
         e.preventDefault()
         firebase.auth().signOut()
@@ -42,7 +40,7 @@ const DrawerList = () => {
         console.log("Logout")
     }
 
-    ///drawerに表示するもの////
+    ///drawerに表示するItem////
     const drawerContents = [
         {
             icon: <HomeRoundedIcon />,

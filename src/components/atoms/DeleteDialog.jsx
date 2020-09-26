@@ -1,3 +1,7 @@
+//////////////////////
+///削除確認ダイアログ////
+//////////////////////
+
 import React from 'react'
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';

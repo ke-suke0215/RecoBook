@@ -54,7 +54,6 @@ export default function Login({ history }) {
             })
     }
     ////アカウント作成画面への移動////
-    ////アカウント作成画面への移動////
     const toSignUpSubmit = (e) => {
         e.preventDefault()
         history.push("/signup")

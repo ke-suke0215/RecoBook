@@ -14,16 +14,15 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         maxWidth: '50ch',
         margin: 'auto',
+        marginBottom: '20px',
         padding: '30px',
         paddingTop: '20px',
-        marginBottom: '20px'
     },
     wrap: {
         display: 'flex',
         justifyContent: 'space-between',
         marginBottom: '10px',
         borderBottom: '1px solid #777',
-        // padding: '0'
     },
 }));
 
