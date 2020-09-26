@@ -13,12 +13,7 @@ import {
 } from 'react-router-dom'
 
 
-const App = ({ history }) => {
-  const mypageSubmit = e => {
-    e.preventDefault()
-    history.push('/mypage')
-  }
-
+const App = () => {
   return (
     <AuthProvider>
       <Router>

@@ -4,7 +4,6 @@
 
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Link from '@material-ui/core/Link';
 import { useForm } from "react-hook-form";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper'
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp({ history }) {
     const classes = useStyles();
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
 
     ///アカウント作成実行時の挙動（Firebaseへのデータ転送）///
     const onSubmit = data => {

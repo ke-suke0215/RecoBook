@@ -8,8 +8,8 @@ import RecoHeader from '../organisms/RecoHeader'
 import TypeSelectTab from '../organisms/TypeSelectTab'
 import MoveTopButton from '../atoms/MoveTopButton'
 
-const Room = () => {
 
+const Room = () => {
     const [allMessages, setAllMessages] = useState('')
     const [novelMessages, setNovelMessages] = useState('')
     const [businessMessages, setBusinessMessages] = useState('')
@@ -57,10 +57,12 @@ const Room = () => {
                 const messages = snapshot.docs.map(doc => {
                     return { ...doc.data(), id: doc.id }
                 })
-                console.log(messages)
                 setAllMessages(messages)
-                setMessagesTypes.map(type => {
+                setMessagesTypes.map((type, index) => {
                     type.setMessages(messages.filter(message => message.type === type.typeText))
+                    return (
+                        messagesTypes[index]
+                    )
                 })
             })
     }, [])

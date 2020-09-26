@@ -2,7 +2,7 @@
 //ユーザー名変更ダイアログ//
 ////////////////////////
 
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
@@ -17,7 +17,7 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { useHistory } from 'react-router-dom'
 import { db } from '../../config/firebase'
-
+import { AuthContext } from '../../AuthService'
 
 ////スタイル指定////
 const useStyles = makeStyles((theme) => ({
@@ -35,18 +35,33 @@ const useStyles = makeStyles((theme) => ({
 
 const ChangeNameDialog = ({ open, handleClose }) => {
     const classes = useStyles();
-
     const history = useHistory()
+    const [myMessages, setMyMessages] = useState('')
 
+    ////データ書き換えに必要な変数/////
+    const user = useContext(AuthContext)
+    let userId = ""
+    let displayName = ""
+    if (user !== null) {
+        userId = user.uid
+        // displayName = user.displayName
+    }
 
     //////react-hook-form導入//////
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
 
     /////submit時の関数/////
     const onSubmit = (data, e) => {
         firebase.auth().currentUser.updateProfile({
             displayName: data.userName
         }).then(() => {
+            displayName = user.displayName
+            myMessages.map(myMessage => {
+                db.collection('messages').doc(myMessage.id).set({
+                    user: displayName
+                }, { merge: true })
+                console.log('map実行中')
+            })
             console.log("success")
             firebase.auth().signOut()
             history.push("/login")
@@ -55,10 +70,23 @@ const ChangeNameDialog = ({ open, handleClose }) => {
             console.log(err)
             alert('変更できませんでした')
         })
-        // e.target.reset()
-        // handleClose()
     }
 
+    useEffect(() => {
+        db.collection('messages')
+            .orderBy("createdAt", "desc")
+            .onSnapshot((snapshot) => {
+                const messages = snapshot.docs.map(doc => {
+                    return { ...doc.data(), id: doc.id }
+                })
+                return (
+                    setMyMessages(messages.filter(message => message.userId === userId))
+                )
+            })
+        console.log('useEffect実行')
+    }, [])
+
+    console.log(myMessages)
     return (
         <>
             <Dialog

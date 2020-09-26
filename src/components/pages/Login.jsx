@@ -6,10 +6,8 @@ import React, { useContext } from 'react'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../../AuthService'
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Link from '@material-ui/core/Link';
 import { useForm } from "react-hook-form";
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -41,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login({ history }) {
     const classes = useStyles();
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
 
     ////ログインボタン実行時の挙動////
     const onSubmit = data => {

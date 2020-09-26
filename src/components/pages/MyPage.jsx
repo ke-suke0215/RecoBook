@@ -12,7 +12,6 @@ import TypeSelectTab from '../organisms/TypeSelectTab'
 import ChangeNameIcon from '../molecules/ChangeNameIcon'
 
 const MyPage = () => {
-
     const [allMessages, setAllMessages] = useState('')
     const [novelMessages, setNovelMessages] = useState('')
     const [businessMessages, setBusinessMessages] = useState('')
@@ -69,13 +68,24 @@ const MyPage = () => {
                 const messages = snapshot.docs.map(doc => {
                     return { ...doc.data(), id: doc.id }
                 })
-                console.log()
                 setAllMessages(messages.filter(message => message.userId === userId))
                 setMessagesTypes.map(type => {
                     type.setMessages(messages.filter(message => message.type === type.typeText && message.userId === userId))
                 })
             })
     }, [])
+
+    // /////投稿のユーザー名書き換え//////
+    // useEffect(() => {
+    //     db.collection('messages')
+    //         .doc(allMessages[0].id).set({
+    //             user: user.displayName
+    //         }).then(() => {
+    //             console.log("success change user name")
+    //         }).catch(err => {
+    //             console.log(err)
+    //         })
+    // }, [])
 
 
 
