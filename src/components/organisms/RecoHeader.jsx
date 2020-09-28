@@ -32,9 +32,9 @@ const RecoHeader = ({ pageType }) => {
 
     ////投稿ボタンの表示の真偽値////
     let dialogIconDisplay = true
-    if (pageType === "Help") {
-        dialogIconDisplay = false
-    }
+    // if (pageType === "Help") {
+    //     dialogIconDisplay = false
+    // }
 
     ////Drawer開閉設定////
     const handleDrawerToggle = () => {
