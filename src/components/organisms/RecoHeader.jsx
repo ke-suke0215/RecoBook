@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     appBar: {
-        position: 'fixed'
+        position: 'fixed',
+        top: '0px'
     }
 }));
 
