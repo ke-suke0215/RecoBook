@@ -16,7 +16,6 @@ import RequestContent from '../molecules/RequestContent';
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
-        margin: 'auto',
         [theme.breakpoints.down('xs')]: {
             marginTop: '56px',
         },
