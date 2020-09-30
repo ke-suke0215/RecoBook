@@ -30,12 +30,6 @@ const RecoHeader = ({ pageType }) => {
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    ////投稿ボタンの表示の真偽値////
-    let dialogIconDisplay = true
-    // if (pageType === "Help") {
-    //     dialogIconDisplay = false
-    // }
-
     ////Drawer開閉設定////
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -60,7 +54,7 @@ const RecoHeader = ({ pageType }) => {
                             {pageType}
                         </Typography>
                     </Grid>
-                    <DialogIcon dialogIconDisplay={dialogIconDisplay} />
+                    <DialogIcon />
                 </Toolbar>
             </AppBar>
             <RecoDrawer
