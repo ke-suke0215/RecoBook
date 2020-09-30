@@ -8,7 +8,7 @@ import PostAddOutlinedIcon from '@material-ui/icons/PostAddOutlined';
 import AddPost from '../molecules/AddPost'
 import Tooltip from '@material-ui/core/Tooltip'
 
-export default function DialogIcon({ dialogIconDisplay }) {
+export default function DialogIcon() {
 
     ///ダイアログ開閉////
     const [open, setOpen] = React.useState(false);
@@ -23,9 +23,6 @@ export default function DialogIcon({ dialogIconDisplay }) {
         <div>
             <Tooltip
                 title="New Post"
-                style={{
-                    display: dialogIconDisplay ? 'block' : 'none'
-                }}
             >
                 <IconButton
                     color="inherit"
